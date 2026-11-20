@@ -1,0 +1,2365 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Encuentra ideas de regalo personalizadas según la persona, sus gustos, la ocasión y tu presupuesto."
+    />
+    <meta name="theme-color" content="#ff5c7a" />
+    <title>Regalómetro | Encuentra el regalo que encaja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+:root {
+  --ink: #231b2d;
+  --muted: #6c6375;
+  --paper: #fffaf8;
+  --surface: #ffffff;
+  --line: #ece4e4;
+  --coral: #ff5c7a;
+  --coral-dark: #e63d61;
+  --pink-soft: #ffe6ec;
+  --purple: #6f4be8;
+  --purple-soft: #eee9ff;
+  --yellow: #ffd65a;
+  --yellow-soft: #fff4c5;
+  --green: #2e9c70;
+  --shadow: 0 22px 70px rgba(77, 43, 59, 0.12);
+  --radius-xl: 34px;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 7% 10%, rgba(255, 214, 90, 0.22), transparent 23rem),
+    radial-gradient(circle at 92% 17%, rgba(111, 75, 232, 0.12), transparent 25rem),
+    var(--paper);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+.site-header {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1180px, calc(100% - 32px));
+  margin: 16px auto 0;
+  padding: 12px 14px 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  background: rgba(255, 250, 248, 0.84);
+  box-shadow: 0 10px 40px rgba(69, 42, 54, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.16rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: white;
+  border-radius: 11px;
+  background: var(--coral);
+  box-shadow: 0 8px 18px rgba(255, 92, 122, 0.28);
+}
+
+.header-actions,
+.results-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.text-button,
+.back-button,
+.close-button,
+.danger-text-button {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.text-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 11px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.text-button:hover {
+  background: white;
+}
+
+.counter {
+  display: grid;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  place-items: center;
+  color: white;
+  border-radius: 999px;
+  background: var(--coral);
+  font-size: 0.78rem;
+}
+
+main {
+  overflow: hidden;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  width: min(1160px, calc(100% - 40px));
+  min-height: 690px;
+  margin: 0 auto;
+  padding: 76px 0 60px;
+  gap: 60px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--coral-dark);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  line-height: 1.05;
+}
+
+h1 {
+  max-width: 720px;
+  margin-bottom: 24px;
+  font-size: clamp(3rem, 6.5vw, 5.8rem);
+  letter-spacing: -0.065em;
+}
+
+h2 {
+  margin-bottom: 14px;
+  font-size: clamp(2.1rem, 4vw, 3.7rem);
+  letter-spacing: -0.045em;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 1.28rem;
+}
+
+.hero-description {
+  max-width: 590px;
+  margin-bottom: 30px;
+  color: var(--muted);
+  font-size: 1.16rem;
+}
+
+.primary-button,
+.secondary-button,
+.shop-button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.primary-button {
+  padding: 0 24px;
+  color: white;
+  border: 0;
+  background: var(--coral);
+  box-shadow: 0 13px 28px rgba(255, 92, 122, 0.26);
+}
+
+.primary-button:hover,
+.shop-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 17px 32px rgba(255, 92, 122, 0.3);
+}
+
+.primary-button:disabled {
+  cursor: default;
+  opacity: 0.45;
+  transform: none;
+  box-shadow: none;
+}
+
+.secondary-button {
+  min-height: 46px;
+  padding: 0 18px;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  background: white;
+}
+
+.secondary-button:hover {
+  transform: translateY(-1px);
+  border-color: #d6c8cc;
+}
+
+.hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.hero-proof span {
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 500px;
+  border-radius: 50% 46% 45% 50%;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.9) 0 14%, transparent 15%),
+    linear-gradient(145deg, var(--pink-soft), #fff1cf 48%, var(--purple-soft));
+}
+
+.hero-visual::before,
+.hero-visual::after {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+}
+
+.hero-visual::before {
+  inset: 8%;
+  border: 2px dashed rgba(255, 92, 122, 0.2);
+}
+
+.hero-visual::after {
+  width: 34px;
+  height: 34px;
+  right: 7%;
+  bottom: 12%;
+  background: var(--yellow);
+  box-shadow: -420px -320px 0 -8px var(--purple), -390px 40px 0 -12px var(--coral);
+}
+
+.hero-gift {
+  position: absolute;
+  top: 51%;
+  left: 50%;
+  width: 180px;
+  height: 146px;
+  transform: translate(-50%, -39%) rotate(-4deg);
+  border-radius: 12px 12px 24px 24px;
+  background: var(--coral);
+  box-shadow: 0 35px 55px rgba(160, 54, 81, 0.28);
+}
+
+.lid {
+  position: absolute;
+  z-index: 2;
+  top: -23px;
+  left: -10px;
+  width: 200px;
+  height: 40px;
+  border-radius: 12px;
+  background: #ff7691;
+}
+
+.ribbon-vertical {
+  position: absolute;
+  z-index: 3;
+  top: -23px;
+  bottom: 0;
+  left: calc(50% - 17px);
+  width: 34px;
+  background: var(--yellow);
+}
+
+.ribbon-horizontal {
+  position: absolute;
+  z-index: 1;
+  top: 48px;
+  right: 0;
+  left: 0;
+  height: 31px;
+  background: var(--yellow);
+}
+
+.bow {
+  position: absolute;
+  z-index: 4;
+  top: -68px;
+  width: 62px;
+  height: 48px;
+  border: 13px solid var(--yellow);
+  background: transparent;
+}
+
+.bow-left {
+  left: 30px;
+  transform: rotate(22deg);
+  border-radius: 70% 35% 55% 30%;
+}
+
+.bow-right {
+  right: 30px;
+  transform: rotate(-22deg);
+  border-radius: 35% 70% 30% 55%;
+}
+
+.gift-orbit {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  width: 160px;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 16px 34px rgba(66, 39, 55, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.gift-orbit span {
+  font-size: 1.8rem;
+}
+
+.gift-orbit small {
+  color: var(--muted);
+  font-size: 0.77rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.orbit-one {
+  top: 7%;
+  left: 6%;
+  transform: rotate(-4deg);
+}
+
+.orbit-two {
+  top: 24%;
+  right: -2%;
+  transform: rotate(4deg);
+}
+
+.orbit-three {
+  bottom: 6%;
+  left: 8%;
+  transform: rotate(3deg);
+}
+
+.quiz-section,
+.results-section {
+  width: min(1050px, calc(100% - 32px));
+  margin: 40px auto 100px;
+}
+
+.quiz-shell {
+  padding: clamp(20px, 4vw, 42px);
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow: var(--shadow);
+}
+
+.quiz-topline,
+.quiz-footer,
+.results-heading,
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.quiz-topline p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.back-button {
+  padding: 7px 0;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.close-button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 12px;
+  font-size: 1.5rem;
+}
+
+.close-button:hover {
+  background: #f8f1f2;
+}
+
+.progress-track {
+  height: 8px;
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #f2eaec;
+}
+
+.progress-bar {
+  width: 16.66%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--coral), #ff9475);
+  transition: width 280ms ease;
+}
+
+.quiz-content {
+  min-height: 420px;
+  padding: 48px 0 28px;
+}
+
+.question-heading {
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+
+.question-heading h2 {
+  margin-bottom: 12px;
+  font-size: clamp(2rem, 4.7vw, 3.4rem);
+}
+
+.question-heading p {
+  color: var(--muted);
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.option-card {
+  display: flex;
+  min-height: 104px;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  color: var(--ink);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-md);
+  background: white;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 150ms ease, border 150ms ease, background 150ms ease;
+}
+
+.option-card:hover {
+  transform: translateY(-2px);
+  border-color: #e7b8c2;
+}
+
+.option-card.selected {
+  border-color: var(--coral);
+  background: var(--pink-soft);
+}
+
+.option-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  place-items: center;
+  border-radius: 14px;
+  background: #f8f4f4;
+  font-size: 1.55rem;
+}
+
+.option-copy strong {
+  display: block;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.02rem;
+}
+
+.option-copy small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.quiz-footer {
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.quiz-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.results-heading {
+  align-items: flex-end;
+  margin-bottom: 34px;
+}
+
+.results-heading > div:first-child {
+  max-width: 690px;
+}
+
+.results-heading p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gift-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 12px 40px rgba(64, 40, 48, 0.07);
+}
+
+.gift-card-visual {
+  position: relative;
+  display: grid;
+  min-height: 190px;
+  place-items: center;
+  background: var(--card-color, var(--pink-soft));
+}
+
+.gift-card-visual span {
+  filter: drop-shadow(0 12px 10px rgba(54, 31, 42, 0.12));
+  font-size: 5rem;
+  transform: rotate(-4deg);
+}
+
+.match-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 7px 10px;
+  color: #176245;
+  border-radius: 999px;
+  background: #dcf8ec;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.favorite-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  color: var(--ink);
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px rgba(50, 28, 39, 0.12);
+  cursor: pointer;
+  font-size: 1.35rem;
+}
+
+.favorite-button.active {
+  color: white;
+  background: var(--coral);
+}
+
+.gift-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.gift-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.gift-price {
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.gift-card h3 {
+  margin-bottom: 9px;
+}
+
+.gift-description {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.gift-reason {
+  margin: auto 0 18px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #faf6f5;
+  font-size: 0.82rem;
+}
+
+.gift-reason strong {
+  color: var(--coral-dark);
+}
+
+.shop-button {
+  width: 100%;
+  min-height: 46px;
+  color: white;
+  background: var(--ink);
+}
+
+.shop-button:hover {
+  background: #392e43;
+  box-shadow: 0 12px 26px rgba(35, 27, 45, 0.2);
+}
+
+.results-more {
+  margin-top: 30px;
+  padding: 28px;
+  border: 1px dashed #e8b9c4;
+  border-radius: 22px;
+  background: rgba(255, 230, 236, 0.48);
+  text-align: center;
+}
+
+.feedback-card {
+  margin-top: 30px;
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid #dfd4ff;
+  border-radius: 26px;
+  background: linear-gradient(145deg, #fff 0%, #f5f1ff 100%);
+  box-shadow: 0 16px 45px rgba(89, 64, 153, 0.1);
+}
+
+.feedback-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.feedback-heading h3 {
+  margin-bottom: 8px;
+  font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+
+.feedback-heading p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.test-progress {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  color: #5136a8;
+  border-radius: 999px;
+  background: #e9e1ff;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.feedback-fieldset {
+  margin: 0 0 22px;
+  padding: 0;
+  border: 0;
+}
+
+.feedback-fieldset legend,
+.feedback-label {
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.rating-options,
+.intent-options {
+  display: grid;
+  gap: 9px;
+}
+
+.rating-options {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.intent-options {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.rating-options label,
+.intent-options label {
+  cursor: pointer;
+}
+
+.rating-options input,
+.intent-options input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rating-options span,
+.intent-options span {
+  display: grid;
+  min-height: 62px;
+  place-items: center;
+  padding: 9px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: white;
+  font-weight: 800;
+  transition: border 150ms ease, background 150ms ease, transform 150ms ease;
+}
+
+.rating-options span {
+  gap: 1px;
+}
+
+.rating-options small {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.rating-options label:hover span,
+.intent-options label:hover span {
+  transform: translateY(-1px);
+  border-color: #c7b7f4;
+}
+
+.rating-options input:checked + span,
+.intent-options input:checked + span {
+  color: #4d309f;
+  border-color: var(--purple);
+  background: var(--purple-soft);
+}
+
+.rating-options input:focus-visible + span,
+.intent-options input:focus-visible + span {
+  outline: 3px solid rgba(111, 75, 232, 0.25);
+  outline-offset: 2px;
+}
+
+.feedback-label {
+  display: block;
+  margin-bottom: 22px;
+}
+
+.feedback-label > span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.feedback-label select,
+.feedback-label textarea {
+  width: 100%;
+  margin-top: 9px;
+  color: var(--ink);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: white;
+  font: inherit;
+}
+
+.feedback-label select {
+  min-height: 50px;
+  padding: 0 44px 0 14px;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 21px, calc(100% - 14px) 21px;
+  background-repeat: no-repeat;
+  background-size: 6px 6px, 6px 6px;
+}
+
+.feedback-label textarea {
+  padding: 13px 14px;
+  resize: vertical;
+}
+
+.feedback-label select:focus,
+.feedback-label textarea:focus {
+  border-color: var(--purple);
+  outline: 3px solid rgba(111, 75, 232, 0.15);
+}
+
+.feedback-success {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 18px;
+  background: #e3f8ee;
+}
+
+.feedback-success > span {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  color: white;
+  border-radius: 50%;
+  background: var(--green);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.feedback-success h3,
+.feedback-success p {
+  margin: 0;
+}
+
+.feedback-success p {
+  color: #3f715e;
+  font-size: 0.88rem;
+}
+
+.feedback-success-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.results-more p {
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.how-it-works,
+.seasonal-section {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto 110px;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 38px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.steps-grid article {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.steps-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.step-icon {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 22px;
+  place-items: center;
+  border-radius: 17px;
+  background: var(--pink-soft);
+  font-size: 1.7rem;
+}
+
+.seasonal-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.seasonal-card {
+  display: flex;
+  min-height: 210px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 26px;
+  border-radius: 24px;
+}
+
+.seasonal-card > span {
+  font-size: 3.1rem;
+}
+
+.seasonal-card p {
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.seasonal-card h3 {
+  margin: 0;
+  font-size: 1.55rem;
+}
+
+.coral-card {
+  background: #ffbdc8;
+}
+
+.purple-card {
+  color: white;
+  background: var(--purple);
+}
+
+.yellow-card {
+  background: var(--yellow);
+}
+
+.site-footer {
+  display: grid;
+  justify-items: center;
+  padding: 54px 20px;
+  border-top: 1px solid var(--line);
+  background: white;
+  text-align: center;
+}
+
+.site-footer p {
+  max-width: 650px;
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.footer-note {
+  font-size: 0.78rem;
+}
+
+.modal {
+  width: min(780px, calc(100% - 28px));
+  max-height: 86vh;
+  padding: 28px;
+  overflow: auto;
+  color: var(--ink);
+  border: 0;
+  border-radius: 26px;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.modal::backdrop {
+  background: rgba(35, 27, 45, 0.48);
+  backdrop-filter: blur(5px);
+}
+
+.modal-header {
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.modal-header h2 {
+  margin-bottom: 0;
+  font-size: 2.3rem;
+}
+
+.modal-intro {
+  color: var(--muted);
+}
+
+.favorite-list-item {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.favorite-list-item:last-child {
+  border-bottom: 0;
+}
+
+.favorite-list-icon {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  place-items: center;
+  border-radius: 15px;
+  background: var(--pink-soft);
+  font-size: 1.8rem;
+}
+
+.favorite-list-item h3,
+.favorite-list-item p {
+  margin: 0;
+}
+
+.favorite-list-item p {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.empty-state {
+  padding: 48px 20px;
+  border-radius: 18px;
+  background: #faf6f5;
+  text-align: center;
+}
+
+.empty-state span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 2.6rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.stat-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: #fcf8f7;
+}
+
+.stat-card strong {
+  display: block;
+  margin-bottom: 4px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 2rem;
+}
+
+.stat-card span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.feedback-insights {
+  margin: 4px 0 20px;
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--purple-soft);
+}
+
+.feedback-insights h3 {
+  margin-bottom: 12px;
+}
+
+.feedback-insights ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.feedback-insights li + li {
+  margin-top: 7px;
+}
+
+.stats-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.danger-text-button {
+  padding: 8px 0;
+  color: #b7354e;
+  font-weight: 800;
+}
+
+.toast {
+  position: fixed;
+  z-index: 50;
+  bottom: 24px;
+  left: 50%;
+  max-width: calc(100% - 32px);
+  padding: 12px 18px;
+  color: white;
+  border-radius: 12px;
+  background: var(--ink);
+  box-shadow: 0 14px 32px rgba(35, 27, 45, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 18px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 64px;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-description,
+  .hero-proof {
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+  }
+
+  .hero-visual {
+    width: min(560px, 100%);
+    min-height: 470px;
+    margin: 0 auto;
+  }
+
+  .results-grid,
+  .steps-grid,
+  .seasonal-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .results-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-header {
+    width: calc(100% - 20px);
+    margin-top: 10px;
+  }
+
+  .header-actions .text-button:last-child {
+    display: none;
+  }
+
+  .text-button {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  .hero {
+    width: calc(100% - 28px);
+    min-height: auto;
+    padding: 54px 0 70px;
+    gap: 48px;
+  }
+
+  h1 {
+    font-size: clamp(2.9rem, 14vw, 4.2rem);
+  }
+
+  .hero-visual {
+    min-height: 390px;
+  }
+
+  .hero-gift {
+    width: 146px;
+    height: 125px;
+  }
+
+  .lid {
+    width: 164px;
+  }
+
+  .gift-orbit {
+    width: 130px;
+    padding: 9px;
+  }
+
+  .gift-orbit small {
+    font-size: 0.68rem;
+  }
+
+  .quiz-section,
+  .results-section {
+    margin-top: 22px;
+  }
+
+  .quiz-shell {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .quiz-content {
+    min-height: 440px;
+    padding-top: 34px;
+  }
+
+  .options-grid,
+  .results-grid,
+  .steps-grid,
+  .seasonal-section {
+    grid-template-columns: 1fr;
+  }
+
+  .option-card {
+    min-height: 82px;
+    padding: 13px;
+  }
+
+  .quiz-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .quiz-footer .primary-button {
+    width: 100%;
+  }
+
+  .results-actions {
+    width: 100%;
+  }
+
+  .results-actions button {
+    flex: 1;
+  }
+
+  .seasonal-card {
+    min-height: 180px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .feedback-heading,
+  .feedback-success {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .feedback-success-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rating-options {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .rating-options span {
+    min-height: 56px;
+    padding: 6px 2px;
+  }
+
+  .rating-options small {
+    display: none;
+  }
+
+  .stats-actions .secondary-button {
+    width: 100%;
+  }
+
+  .favorite-list-item {
+    grid-template-columns: 48px 1fr;
+  }
+
+  .favorite-list-item .secondary-button {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio de Regalómetro">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span>Regalómetro</span>
+      </a>
+      <nav class="header-actions" aria-label="Navegación principal">
+        <button class="text-button" id="favoritesButton" type="button">
+          <span aria-hidden="true">♡</span>
+          Favoritos
+          <span class="counter" id="favoritesCount">0</span>
+        </button>
+        <button class="text-button" id="statsButton" type="button">Estadísticas</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <p class="eyebrow">Ideas que sí encajan</p>
+          <h1>Encuentra un regalo que parezca pensado de verdad.</h1>
+          <p class="hero-description">
+            Cuéntanos un poco sobre esa persona y te proponemos regalos que encajan con sus gustos, la ocasión y tu presupuesto.
+          </p>
+          <button class="primary-button" id="startButton" type="button">Encontrar un regalo</button>
+          <div class="hero-proof" aria-label="Ventajas del recomendador">
+            <span>6 preguntas</span>
+            <span>Menos de 1 minuto</span>
+            <span>Sin registro</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Ejemplos de regalos">
+          <div class="gift-orbit orbit-one">
+            <span aria-hidden="true">🎧</span>
+            <small>Para quien vive con música</small>
+          </div>
+          <div class="gift-orbit orbit-two">
+            <span aria-hidden="true">📸</span>
+            <small>Para guardar momentos</small>
+          </div>
+          <div class="gift-orbit orbit-three">
+            <span aria-hidden="true">🧩</span>
+            <small>Para una tarde diferente</small>
+          </div>
+          <div class="hero-gift" aria-hidden="true">
+            <div class="lid"></div>
+            <div class="ribbon ribbon-vertical"></div>
+            <div class="ribbon ribbon-horizontal"></div>
+            <div class="bow bow-left"></div>
+            <div class="bow bow-right"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quiz-section hidden" id="quizSection" aria-live="polite">
+        <div class="quiz-shell">
+          <div class="quiz-topline">
+            <button class="back-button" id="backButton" type="button" aria-label="Volver a la pregunta anterior">Atrás</button>
+            <p id="stepLabel">Pregunta 1 de 6</p>
+            <button class="close-button" id="closeQuizButton" type="button" aria-label="Cerrar cuestionario">×</button>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <div class="quiz-content" id="quizContent"></div>
+          <div class="quiz-footer">
+            <p id="selectionHint">Elige una opción para continuar</p>
+            <button class="primary-button" id="nextButton" type="button" disabled>Continuar</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-section hidden" id="resultsSection" aria-live="polite">
+        <div class="results-heading">
+          <div>
+            <p class="eyebrow">Tu selección personalizada</p>
+            <h2>Estos regalos tienen buena pinta</h2>
+            <p id="resultSummary"></p>
+          </div>
+          <div class="results-actions">
+            <button class="secondary-button" id="shareButton" type="button">Compartir</button>
+            <button class="secondary-button" id="restartButton" type="button">Repetir test</button>
+          </div>
+        </div>
+        <div class="results-grid" id="resultsGrid"></div>
+        <section class="feedback-card" id="feedbackCard">
+          <div class="feedback-heading">
+            <div>
+              <p class="eyebrow">Prueba con usuarios</p>
+              <h3>¿Cuánto hemos acertado?</h3>
+              <p>Tu valoración nos ayuda a mejorar las siguientes recomendaciones.</p>
+            </div>
+            <span class="test-progress" id="testProgress">Prueba 1 de 5</span>
+          </div>
+          <form id="feedbackForm">
+            <fieldset class="feedback-fieldset">
+              <legend>Valora las recomendaciones</legend>
+              <div class="rating-options" aria-label="Valoración del 1 al 5">
+                <label><input type="radio" name="rating" value="1" required /><span>1<small>Nada</small></span></label>
+                <label><input type="radio" name="rating" value="2" /><span>2<small>Poco</small></span></label>
+                <label><input type="radio" name="rating" value="3" /><span>3<small>Regular</small></span></label>
+                <label><input type="radio" name="rating" value="4" /><span>4<small>Bastante</small></span></label>
+                <label><input type="radio" name="rating" value="5" /><span>5<small>Mucho</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="feedback-fieldset">
+              <legend>¿Considerarías alguno de estos regalos?</legend>
+              <div class="intent-options">
+                <label><input type="radio" name="purchaseIntent" value="si" required /><span>Sí</span></label>
+                <label><input type="radio" name="purchaseIntent" value="quizas" /><span>Quizás</span></label>
+                <label><input type="radio" name="purchaseIntent" value="no" /><span>No</span></label>
+              </div>
+            </fieldset>
+
+            <label class="feedback-label" for="chosenGift">
+              ¿Cuál es la idea que más te ha gustado?
+              <select id="chosenGift" name="chosenGift" required>
+                <option value="">Elige una idea</option>
+              </select>
+            </label>
+
+            <label class="feedback-label" for="feedbackComment">
+              ¿Qué cambiarías o qué regalo echas en falta? <span>Opcional</span>
+              <textarea id="feedbackComment" name="comment" maxlength="300" rows="3" placeholder="Escribe una frase corta"></textarea>
+            </label>
+
+            <button class="primary-button" type="submit">Guardar valoración</button>
+          </form>
+          <div class="feedback-success hidden" id="feedbackSuccess">
+            <span aria-hidden="true">✓</span>
+            <div>
+              <h3>Valoración guardada</h3>
+              <p>Ya puedes pasarle el dispositivo a la siguiente persona.</p>
+            </div>
+            <div class="feedback-success-actions">
+              <button class="secondary-button" id="viewTestStatsButton" type="button">Ver resultados</button>
+              <button class="primary-button" id="nextTesterButton" type="button">Nueva prueba</button>
+            </div>
+          </div>
+        </section>
+        <div class="results-more">
+          <p>¿Quieres cambiar el presupuesto o algún gusto?</p>
+          <button class="primary-button" id="adjustButton" type="button">Ajustar respuestas</button>
+        </div>
+      </section>
+
+      <section class="how-it-works" id="como-funciona">
+        <div class="section-heading">
+          <p class="eyebrow">Una decisión más fácil</p>
+          <h2>De “no tengo ni idea” a una lista que encaja</h2>
+        </div>
+        <div class="steps-grid">
+          <article>
+            <span class="step-icon" aria-hidden="true">💬</span>
+            <h3>Cuéntanos lo esencial</h3>
+            <p>La relación, la ocasión, sus intereses y cuánto quieres gastar.</p>
+          </article>
+          <article>
+            <span class="step-icon" aria-hidden="true">✨</span>
+            <h3>Cruzamos las pistas</h3>
+            <p>Ordenamos las ideas según lo bien que coinciden con tus respuestas.</p>
+          </article>
+          <article>
+            <span class="step-icon" aria-hidden="true">🎁</span>
+            <h3>Elige con seguridad</h3>
+            <p>Guarda tus favoritos, compáralos y encuentra dónde conseguirlos.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="seasonal-section">
+        <div class="seasonal-card coral-card">
+          <span aria-hidden="true">🎂</span>
+          <div>
+            <p>Ideas para cumpleaños</p>
+            <h3>Un regalo que hable de esa persona</h3>
+          </div>
+        </div>
+        <div class="seasonal-card purple-card">
+          <span aria-hidden="true">🕵️</span>
+          <div>
+            <p>Amigo invisible</p>
+            <h3>Opciones originales desde 10 €</h3>
+          </div>
+        </div>
+        <div class="seasonal-card yellow-card">
+          <span aria-hidden="true">💛</span>
+          <div>
+            <p>Detalles para parejas</p>
+            <h3>Ideas personales sin caer en lo típico</h3>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#inicio">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span>Regalómetro</span>
+      </a>
+      <p>Una primera versión para descubrir regalos con más intención.</p>
+      <p class="footer-note">Los enlaces actuales abren búsquedas orientativas. Las tiendas y precios pueden variar.</p>
+    </footer>
+
+    <dialog class="modal" id="favoritesModal">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Tu selección</p>
+          <h2>Regalos guardados</h2>
+        </div>
+        <button class="close-button" data-close-modal="favoritesModal" type="button" aria-label="Cerrar favoritos">×</button>
+      </div>
+      <div class="modal-body" id="favoritesList"></div>
+    </dialog>
+
+    <dialog class="modal stats-modal" id="statsModal">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Panel de aprendizaje</p>
+          <h2>Estadísticas de esta demo</h2>
+        </div>
+        <button class="close-button" data-close-modal="statsModal" type="button" aria-label="Cerrar estadísticas">×</button>
+      </div>
+      <p class="modal-intro">Estos datos se guardan únicamente en este navegador durante la primera versión.</p>
+      <div class="stats-grid" id="statsGrid"></div>
+      <div class="feedback-insights" id="feedbackInsights"></div>
+      <div class="stats-actions">
+        <button class="secondary-button" id="exportFeedbackButton" type="button">Exportar pruebas en CSV</button>
+        <button class="secondary-button" id="copySummaryButton" type="button">Copiar resumen</button>
+      </div>
+      <button class="danger-text-button" id="resetStatsButton" type="button">Reiniciar datos de prueba</button>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script>
+const questions = [
+  {
+    key: "recipient",
+    title: "¿Para quién buscas el regalo?",
+    description: "La relación ayuda a ajustar el tono y el tipo de detalle.",
+    type: "single",
+    options: [
+      { value: "pareja", label: "Mi pareja", icon: "💞", detail: "Novio, novia o persona especial" },
+      { value: "amigo", label: "Un amigo", icon: "🫶", detail: "Amistades y mejores amigos" },
+      { value: "familia", label: "Mi familia", icon: "🏡", detail: "Padres, abuelos y familiares" },
+      { value: "hermano", label: "Mi hermano", icon: "🙌", detail: "Hermanos, hermanas y primos" },
+      { value: "companero", label: "Un compañero", icon: "🤝", detail: "Clase, trabajo o amigo invisible" },
+      { value: "nino", label: "Un niño", icon: "🧸", detail: "Peques y adolescentes" }
+    ]
+  },
+  {
+    key: "occasion",
+    title: "¿Qué vais a celebrar?",
+    description: "Elegiremos ideas que tengan sentido para ese momento.",
+    type: "single",
+    options: [
+      { value: "cumpleanos", label: "Cumpleaños", icon: "🎂", detail: "Para celebrar un año más" },
+      { value: "navidad", label: "Navidad", icon: "🎄", detail: "Un regalo para abrir en familia" },
+      { value: "amigo-invisible", label: "Amigo invisible", icon: "🕵️", detail: "Original y dentro del límite" },
+      { value: "aniversario", label: "Aniversario", icon: "💌", detail: "Un detalle con significado" },
+      { value: "agradecimiento", label: "Dar las gracias", icon: "🌟", detail: "Un gesto bonito y sencillo" },
+      { value: "porque-si", label: "Porque sí", icon: "✨", detail: "Una sorpresa inesperada" }
+    ]
+  },
+  {
+    key: "age",
+    title: "¿Qué edad tiene aproximadamente?",
+    description: "Usaremos la edad como una pista, sin caer en regalos demasiado típicos.",
+    type: "single",
+    options: [
+      { value: "0-12", label: "Hasta 12 años", icon: "🪁", detail: "Infancia" },
+      { value: "13-17", label: "13–17 años", icon: "🎮", detail: "Adolescencia" },
+      { value: "18-25", label: "18–25 años", icon: "🎓", detail: "Primeros años adultos" },
+      { value: "26-40", label: "26–40 años", icon: "🌿", detail: "Adultos jóvenes" },
+      { value: "41-60", label: "41–60 años", icon: "☕", detail: "Edad adulta" },
+      { value: "60+", label: "Más de 60", icon: "🌻", detail: "Personas mayores" }
+    ]
+  },
+  {
+    key: "interests",
+    title: "¿Qué cosas le gustan?",
+    description: "Puedes elegir hasta tres intereses.",
+    type: "multiple",
+    max: 3,
+    options: [
+      { value: "tecnologia", label: "Tecnología", icon: "🎧", detail: "Gadgets y accesorios" },
+      { value: "musica", label: "Música", icon: "🎵", detail: "Escuchar y crear" },
+      { value: "gaming", label: "Videojuegos", icon: "🎮", detail: "Jugar y competir" },
+      { value: "deporte", label: "Deporte", icon: "🏃", detail: "Gym, running y actividad" },
+      { value: "viajes", label: "Viajes", icon: "🧳", detail: "Escapadas y aventuras" },
+      { value: "fotografia", label: "Fotografía", icon: "📸", detail: "Fotos y recuerdos" },
+      { value: "cocina", label: "Cocina", icon: "🍳", detail: "Comer, cocinar y probar" },
+      { value: "lectura", label: "Lectura", icon: "📚", detail: "Historias y aprendizaje" },
+      { value: "arte", label: "Arte y creatividad", icon: "🎨", detail: "Crear con las manos" },
+      { value: "bienestar", label: "Bienestar", icon: "🕯️", detail: "Calma y autocuidado" },
+      { value: "moda", label: "Moda", icon: "🧢", detail: "Estilo y complementos" },
+      { value: "naturaleza", label: "Naturaleza", icon: "🌱", detail: "Aire libre y plantas" }
+    ]
+  },
+  {
+    key: "budget",
+    title: "¿Cuánto quieres gastar?",
+    description: "Mostraremos ideas que encajen de verdad en tu presupuesto.",
+    type: "single",
+    options: [
+      { value: "0-15", label: "Hasta 15 €", icon: "🪙", detail: "Un detalle pequeño" },
+      { value: "15-30", label: "15–30 €", icon: "💵", detail: "Muchas opciones originales" },
+      { value: "30-60", label: "30–60 €", icon: "💳", detail: "Un regalo especial" },
+      { value: "60-100", label: "60–100 €", icon: "🎁", detail: "Algo más importante" },
+      { value: "100+", label: "Más de 100 €", icon: "💎", detail: "Una ocasión grande" }
+    ]
+  },
+  {
+    key: "vibe",
+    title: "¿Qué quieres que transmita?",
+    description: "Esta última pista define el estilo de las recomendaciones.",
+    type: "single",
+    options: [
+      { value: "util", label: "Que sea útil", icon: "🛠️", detail: "Algo que utilizará a menudo" },
+      { value: "emocional", label: "Que emocione", icon: "💗", detail: "Personal y con significado" },
+      { value: "divertido", label: "Que haga gracia", icon: "😄", detail: "Una sorpresa para recordar" },
+      { value: "experiencia", label: "Vivir algo", icon: "🎟️", detail: "Un plan para disfrutar" },
+      { value: "original", label: "Que sea original", icon: "💡", detail: "Algo que no se espera" },
+      { value: "elegante", label: "Que quede bien", icon: "✨", detail: "Bonito y fácil de acertar" }
+    ]
+  }
+];
+
+const gifts = [
+  gift("auriculares", "Auriculares inalámbricos", "🎧", 29, "Un compañero diario para música, vídeos y llamadas.", ["tecnologia", "musica", "gaming"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60"], "auriculares inalámbricos regalo"),
+  gift("mini-altavoz", "Mini altavoz Bluetooth", "🔊", 25, "Música portátil para casa, escapadas y reuniones.", ["tecnologia", "musica", "viajes"], ["util", "divertido"], ["13-17", "18-25", "26-40", "41-60"], "mini altavoz bluetooth"),
+  gift("vinilo", "Vinilo de su artista favorito", "💿", 27, "Un regalo personal que también decora su espacio.", ["musica", "arte"], ["emocional", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "vinilo música regalo"),
+  gift("concierto", "Entrada para un concierto", "🎫", 55, "Una experiencia alrededor de la música que le gusta.", ["musica", "viajes"], ["experiencia", "emocional"], ["13-17", "18-25", "26-40", "41-60", "60+"], "entradas conciertos regalo"),
+  gift("album", "Álbum de recuerdos personalizado", "📔", 22, "Fotos, mensajes y momentos convertidos en un detalle único.", ["fotografia", "arte", "viajes"], ["emocional", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "álbum fotos personalizado"),
+  gift("mini-impresora", "Miniimpresora para fotos", "🖨️", 69, "Permite imprimir recuerdos directamente desde el móvil.", ["fotografia", "tecnologia", "viajes"], ["util", "original"], ["13-17", "18-25", "26-40"], "mini impresora fotos móvil"),
+  gift("camara-instantanea", "Cámara instantánea", "📸", 89, "Una forma divertida de convertir momentos en recuerdos físicos.", ["fotografia", "viajes", "arte"], ["experiencia", "original"], ["13-17", "18-25", "26-40"], "cámara instantánea"),
+  gift("marco-digital", "Marco de fotos digital", "🖼️", 75, "Una colección de recuerdos que puede actualizarse con facilidad.", ["fotografia", "tecnologia", "familia"], ["emocional", "util"], ["26-40", "41-60", "60+"], "marco fotos digital"),
+  gift("mando", "Mando para móvil o PC", "🎮", 39, "Mejora las partidas y resulta fácil de usar en distintos dispositivos.", ["gaming", "tecnologia"], ["util", "divertido"], ["13-17", "18-25", "26-40"], "mando gaming móvil pc"),
+  gift("luz-gaming", "Luz ambiental para escritorio", "🌈", 24, "Da personalidad al escritorio y crea ambiente para jugar o estudiar.", ["gaming", "tecnologia", "arte"], ["original", "divertido"], ["13-17", "18-25", "26-40"], "luz ambiente escritorio gaming"),
+  gift("juego-mesa", "Juego de mesa para grupos", "🧩", 28, "Una excusa para reunirse y compartir una tarde diferente.", ["gaming", "familia"], ["divertido", "experiencia"], ["13-17", "18-25", "26-40", "41-60", "60+"], "juego mesa grupos regalo"),
+  gift("tarjeta-juego", "Tarjeta regalo para videojuegos", "🕹️", 20, "Le permite elegir exactamente el juego o contenido que quiere.", ["gaming", "tecnologia"], ["util", "elegante"], ["13-17", "18-25", "26-40"], "tarjeta regalo videojuegos"),
+  gift("botella", "Botella térmica deportiva", "💧", 23, "Mantiene la bebida fría y acompaña entrenamientos y días largos.", ["deporte", "viajes", "naturaleza"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "botella térmica deportiva"),
+  gift("pulsera-actividad", "Pulsera de actividad", "⌚", 49, "Ayuda a seguir pasos, entrenamientos y hábitos diarios.", ["deporte", "tecnologia", "bienestar"], ["util", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "pulsera actividad regalo"),
+  gift("kit-recuperacion", "Kit de recuperación muscular", "💪", 32, "Rodillo, bandas y accesorios para cuidar el cuerpo después de entrenar.", ["deporte", "bienestar"], ["util", "elegante"], ["18-25", "26-40", "41-60", "60+"], "kit recuperación muscular"),
+  gift("experiencia-deporte", "Experiencia deportiva", "🧗", 65, "Escalada, karting, pádel o una actividad que podáis compartir.", ["deporte", "viajes", "naturaleza"], ["experiencia", "divertido"], ["13-17", "18-25", "26-40", "41-60"], "experiencia deportiva regalo"),
+  gift("organizador-viaje", "Organizador de viaje", "🧳", 19, "Mantiene ropa, cables y accesorios ordenados durante cualquier escapada.", ["viajes", "moda"], ["util", "elegante"], ["18-25", "26-40", "41-60", "60+"], "organizador maleta viaje"),
+  gift("mapa-rascar", "Mapa para marcar viajes", "🗺️", 18, "Convierte los destinos visitados en parte de la decoración.", ["viajes", "arte"], ["emocional", "original"], ["13-17", "18-25", "26-40", "41-60"], "mapa viajes rascar"),
+  gift("escapada", "Escapada de un día", "🚆", 80, "Un destino cercano y tiempo compartido sin necesitar muchos preparativos.", ["viajes", "naturaleza", "cocina"], ["experiencia", "emocional"], ["18-25", "26-40", "41-60", "60+"], "escapada regalo experiencia"),
+  gift("adaptador", "Adaptador de viaje universal", "🔌", 26, "Un accesorio pequeño que resuelve un problema en muchos destinos.", ["viajes", "tecnologia"], ["util", "elegante"], ["18-25", "26-40", "41-60", "60+"], "adaptador viaje universal"),
+  gift("kit-cafe", "Kit para preparar café", "☕", 35, "Una pequeña experiencia diaria para alguien que disfruta del buen café.", ["cocina", "bienestar"], ["util", "experiencia"], ["18-25", "26-40", "41-60", "60+"], "kit café regalo"),
+  gift("cata", "Cata o experiencia gastronómica", "🍽️", 60, "Un plan para descubrir sabores y compartir una ocasión especial.", ["cocina", "viajes"], ["experiencia", "elegante"], ["18-25", "26-40", "41-60", "60+"], "experiencia gastronómica regalo"),
+  gift("recetario", "Recetario personalizado", "📖", 16, "Un lugar donde reunir recetas familiares, favoritas o por descubrir.", ["cocina", "familia", "arte"], ["emocional", "util"], ["18-25", "26-40", "41-60", "60+"], "recetario personalizado"),
+  gift("especias", "Set de especias del mundo", "🫙", 24, "Una forma sencilla y original de probar sabores nuevos.", ["cocina", "viajes"], ["original", "util"], ["18-25", "26-40", "41-60", "60+"], "set especias regalo"),
+  gift("libro-especial", "Edición especial de un libro", "📚", 26, "Una edición bonita de una historia o tema que le importa.", ["lectura", "arte"], ["emocional", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "edición especial libro regalo"),
+  gift("lector", "Lector de libros electrónicos", "📱", 119, "Miles de lecturas en un dispositivo cómodo y ligero.", ["lectura", "tecnologia", "viajes"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "lector libros electrónicos"),
+  gift("luz-lectura", "Luz de lectura recargable", "🔖", 14, "Una ayuda práctica para leer cómodamente en cualquier sitio.", ["lectura", "viajes"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "luz lectura recargable"),
+  gift("taller", "Taller creativo", "🧑‍🎨", 45, "Cerámica, pintura o cocina para aprender algo y pasar un buen rato.", ["arte", "cocina"], ["experiencia", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "taller creativo regalo"),
+  gift("kit-arte", "Kit creativo completo", "🎨", 27, "Materiales para empezar un proyecto artístico desde el primer día.", ["arte", "bienestar"], ["original", "util"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "kit arte creativo"),
+  gift("vela", "Vela con aroma personalizado", "🕯️", 17, "Un detalle bonito que hace más agradable su espacio.", ["bienestar", "moda"], ["emocional", "elegante"], ["18-25", "26-40", "41-60", "60+"], "vela aromática personalizada"),
+  gift("spa", "Circuito de spa o masaje", "🧖", 70, "Tiempo para desconectar y sentirse cuidado durante unas horas.", ["bienestar"], ["experiencia", "emocional"], ["18-25", "26-40", "41-60", "60+"], "spa masaje regalo"),
+  gift("manta", "Manta suave de calidad", "🧶", 31, "Un regalo cómodo para descansar, leer o ver una película.", ["bienestar", "lectura"], ["util", "emocional"], ["13-17", "18-25", "26-40", "41-60", "60+"], "manta suave regalo"),
+  gift("planta", "Planta con maceta especial", "🪴", 21, "Añade vida a su espacio y puede durar mucho tiempo.", ["naturaleza", "bienestar"], ["emocional", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "planta maceta regalo"),
+  gift("huerto", "Kit de huerto urbano", "🌱", 29, "Todo lo necesario para cultivar hierbas o verduras en casa.", ["naturaleza", "cocina"], ["original", "util"], ["18-25", "26-40", "41-60", "60+"], "kit huerto urbano"),
+  gift("excursion", "Excursión con pícnic preparado", "🥾", 25, "Un plan personal que combina naturaleza, comida y tiempo juntos.", ["naturaleza", "viajes", "deporte"], ["experiencia", "emocional"], ["13-17", "18-25", "26-40", "41-60", "60+"], "ideas picnic excursión regalo"),
+  gift("cartera", "Cartera o tarjetero personalizado", "👝", 28, "Un objeto útil con un detalle grabado para hacerlo suyo.", ["moda"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "cartera tarjetero personalizado"),
+  gift("joya", "Joya sencilla personalizada", "💎", 42, "Una pieza discreta con una inicial, fecha o símbolo importante.", ["moda", "arte"], ["emocional", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "joya personalizada regalo"),
+  gift("gorra", "Gorra o complemento de su estilo", "🧢", 24, "Un complemento fácil de usar y relacionado con sus gustos.", ["moda", "deporte", "musica"], ["util", "elegante"], ["13-17", "18-25", "26-40"], "gorra regalo estilo"),
+  gift("proyector", "Mini proyector", "📽️", 99, "Convierte una habitación en un pequeño cine para compartir.", ["tecnologia", "gaming", "fotografia"], ["experiencia", "original"], ["13-17", "18-25", "26-40", "41-60"], "mini proyector regalo"),
+  gift("localizador", "Localizador para llaves o mochila", "📍", 35, "Ayuda a encontrar objetos importantes desde el móvil.", ["tecnologia", "viajes"], ["util", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "localizador llaves mochila"),
+  gift("taza", "Taza personalizada con una broma", "☕", 13, "Un detalle económico y personal para usar cada día.", ["cocina", "familia"], ["divertido", "emocional"], ["13-17", "18-25", "26-40", "41-60", "60+"], "taza personalizada divertida"),
+  gift("calcetines", "Calcetines personalizados", "🧦", 12, "Una opción útil y divertida para un intercambio de regalos.", ["moda"], ["divertido", "util"], ["13-17", "18-25", "26-40", "41-60", "60+"], "calcetines personalizados regalo"),
+  gift("rompecabezas", "Puzzle con una foto especial", "🧩", 20, "Una fotografía compartida convertida en plan y recuerdo.", ["fotografia", "familia", "arte"], ["emocional", "divertido"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "puzzle foto personalizado"),
+  gift("caja-snacks", "Caja de snacks internacionales", "🍿", 23, "Una degustación divertida con sabores difíciles de encontrar.", ["cocina", "viajes", "gaming"], ["divertido", "original"], ["13-17", "18-25", "26-40", "41-60"], "caja snacks internacionales"),
+  gift("peluche", "Peluche personalizado", "🧸", 24, "Un detalle cariñoso que puede recordar a una persona o mascota.", ["familia"], ["emocional", "divertido"], ["0-12", "13-17", "18-25"], "peluche personalizado"),
+  gift("lego", "Set de construcción", "🧱", 34, "Un proyecto entretenido para montar, jugar o exponer.", ["gaming", "arte", "tecnologia"], ["divertido", "experiencia"], ["0-12", "13-17", "18-25", "26-40"], "set construcción regalo"),
+  gift("cuento", "Cuento personalizado", "📕", 25, "Una historia donde el niño se convierte en protagonista.", ["lectura", "familia"], ["emocional", "original"], ["0-12"], "cuento personalizado niño"),
+  gift("soporte-movil", "Soporte plegable para móvil", "📱", 11, "Un accesorio pequeño para estudiar, cocinar o ver vídeos cómodamente.", ["tecnologia"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "soporte plegable móvil"),
+  gift("marcapaginas", "Marcapáginas personalizado", "🔖", 9, "Un detalle sencillo con su nombre, una frase o una fecha importante.", ["lectura", "arte"], ["emocional", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "marcapáginas personalizado"),
+  gift("semillas", "Kit de semillas aromáticas", "🌿", 12, "Una pequeña experiencia para cultivar algo en casa desde cero.", ["naturaleza", "cocina"], ["original", "experiencia"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "kit semillas aromáticas"),
+  gift("tarjeta-musical", "Tarjeta con canción y código QR", "🎶", 8, "Una canción especial acompañada de una dedicatoria personal.", ["musica", "arte"], ["emocional", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "tarjeta canción código qr personalizada"),
+  gift("mini-juego", "Juego de cartas de bolsillo", "🃏", 14, "Un plan económico para romper el hielo y jugar en cualquier sitio.", ["gaming", "viajes", "familia"], ["divertido", "experiencia"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "juego cartas bolsillo regalo"),
+  gift("libreta", "Libreta bonita para ideas", "📝", 13, "Un lugar cuidado para apuntar proyectos, viajes o pensamientos.", ["arte", "lectura", "viajes"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "libreta bonita regalo"),
+  gift("reloj-inteligente", "Reloj inteligente", "⌚", 149, "Seguimiento de actividad, avisos y funciones diarias desde la muñeca.", ["tecnologia", "deporte", "bienestar"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "reloj inteligente regalo"),
+  gift("auriculares-premium", "Auriculares premium", "🎧", 189, "Mejor sonido y comodidad para alguien que escucha música cada día.", ["musica", "tecnologia", "gaming"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60"], "auriculares premium regalo"),
+  gift("tablet", "Tablet ligera", "💻", 249, "Sirve para estudiar, leer, dibujar, viajar y disfrutar de contenido.", ["tecnologia", "lectura", "arte"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "tablet ligera regalo"),
+  gift("consola-portatil", "Consola portátil", "🎮", 219, "Una opción especial para jugar tanto en casa como fuera.", ["gaming", "tecnologia", "viajes"], ["divertido", "experiencia"], ["13-17", "18-25", "26-40"], "consola portátil regalo"),
+  gift("fin-semana", "Fin de semana sorpresa", "🏕️", 180, "Una experiencia completa para salir de la rutina y crear recuerdos.", ["viajes", "naturaleza", "cocina"], ["experiencia", "emocional"], ["18-25", "26-40", "41-60", "60+"], "escapada fin de semana regalo"),
+  gift("joya-especial", "Joya de diseño personalizada", "💍", 135, "Una pieza duradera creada alrededor de una fecha, inicial o símbolo.", ["moda", "arte"], ["emocional", "elegante"], ["18-25", "26-40", "41-60", "60+"], "joya diseño personalizada")
+];
+
+const colorPalette = ["#ffe6ec", "#eee9ff", "#fff1c9", "#dff6ec", "#e3f0ff", "#ffe9d8"];
+const state = {
+  step: 0,
+  sessionId: null,
+  answers: {
+    interests: []
+  },
+  results: []
+};
+
+const elements = {
+  hero: document.querySelector(".hero"),
+  quizSection: document.getElementById("quizSection"),
+  quizContent: document.getElementById("quizContent"),
+  stepLabel: document.getElementById("stepLabel"),
+  progressBar: document.getElementById("progressBar"),
+  backButton: document.getElementById("backButton"),
+  nextButton: document.getElementById("nextButton"),
+  selectionHint: document.getElementById("selectionHint"),
+  resultsSection: document.getElementById("resultsSection"),
+  resultsGrid: document.getElementById("resultsGrid"),
+  resultSummary: document.getElementById("resultSummary"),
+  favoritesModal: document.getElementById("favoritesModal"),
+  favoritesList: document.getElementById("favoritesList"),
+  favoritesCount: document.getElementById("favoritesCount"),
+  statsModal: document.getElementById("statsModal"),
+  statsGrid: document.getElementById("statsGrid"),
+  feedbackForm: document.getElementById("feedbackForm"),
+  feedbackSuccess: document.getElementById("feedbackSuccess"),
+  feedbackInsights: document.getElementById("feedbackInsights"),
+  testProgress: document.getElementById("testProgress"),
+  toast: document.getElementById("toast")
+};
+
+initialize();
+
+function gift(id, name, emoji, price, description, interests, vibes, ages, query) {
+  return {
+    id,
+    name,
+    emoji,
+    price,
+    description,
+    interests,
+    vibes,
+    ages,
+    query,
+    occasions: ["cumpleanos", "navidad", "amigo-invisible", "aniversario", "agradecimiento", "porque-si"],
+    recipients: ["pareja", "amigo", "familia", "hermano", "companero", "nino"]
+  };
+}
+
+function initialize() {
+  incrementMetric("visits");
+  bindEvents();
+  updateFavoritesCount();
+}
+
+function bindEvents() {
+  document.getElementById("startButton").addEventListener("click", startQuiz);
+  document.getElementById("closeQuizButton").addEventListener("click", closeQuiz);
+  elements.backButton.addEventListener("click", goBack);
+  elements.nextButton.addEventListener("click", goNext);
+  document.getElementById("restartButton").addEventListener("click", restartQuiz);
+  document.getElementById("adjustButton").addEventListener("click", adjustAnswers);
+  document.getElementById("shareButton").addEventListener("click", shareResults);
+  document.getElementById("favoritesButton").addEventListener("click", showFavorites);
+  document.getElementById("statsButton").addEventListener("click", showStats);
+  document.getElementById("resetStatsButton").addEventListener("click", resetStats);
+  document.getElementById("exportFeedbackButton").addEventListener("click", exportFeedbackCsv);
+  document.getElementById("copySummaryButton").addEventListener("click", copyFeedbackSummary);
+  document.getElementById("nextTesterButton").addEventListener("click", restartQuiz);
+  document.getElementById("viewTestStatsButton").addEventListener("click", showStats);
+  elements.feedbackForm.addEventListener("submit", saveFeedback);
+
+  document.querySelectorAll("[data-close-modal]").forEach((button) => {
+    button.addEventListener("click", () => document.getElementById(button.dataset.closeModal).close());
+  });
+
+  [elements.favoritesModal, elements.statsModal].forEach((modal) => {
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) modal.close();
+    });
+  });
+}
+
+function startQuiz() {
+  state.step = 0;
+  state.sessionId = createSessionId();
+  state.answers = { interests: [] };
+  incrementMetric("quizzesStarted");
+  elements.hero.classList.add("hidden");
+  elements.resultsSection.classList.add("hidden");
+  elements.quizSection.classList.remove("hidden");
+  renderQuestion();
+  scrollToSection(elements.quizSection);
+}
+
+function closeQuiz() {
+  elements.quizSection.classList.add("hidden");
+  elements.hero.classList.remove("hidden");
+  scrollToSection(elements.hero);
+}
+
+function restartQuiz() {
+  startQuiz();
+}
+
+function adjustAnswers() {
+  state.step = Math.max(0, questions.length - 2);
+  elements.resultsSection.classList.add("hidden");
+  elements.quizSection.classList.remove("hidden");
+  renderQuestion();
+  scrollToSection(elements.quizSection);
+}
+
+function renderQuestion() {
+  const question = questions[state.step];
+  elements.stepLabel.textContent = `Pregunta ${state.step + 1} de ${questions.length}`;
+  elements.progressBar.style.width = `${((state.step + 1) / questions.length) * 100}%`;
+  elements.backButton.style.visibility = state.step === 0 ? "hidden" : "visible";
+
+  elements.quizContent.innerHTML = `
+    <div class="question-heading">
+      <p class="eyebrow">Una pista más</p>
+      <h2>${question.title}</h2>
+      <p>${question.description}</p>
+    </div>
+    <div class="options-grid">
+      ${question.options.map((option) => optionMarkup(question, option)).join("")}
+    </div>
+  `;
+
+  elements.quizContent.querySelectorAll(".option-card").forEach((button) => {
+    button.addEventListener("click", () => selectOption(question, button.dataset.value));
+  });
+
+  updateNextButton();
+}
+
+function optionMarkup(question, option) {
+  const current = state.answers[question.key];
+  const selected = question.type === "multiple"
+    ? Array.isArray(current) && current.includes(option.value)
+    : current === option.value;
+
+  return `
+    <button class="option-card ${selected ? "selected" : ""}" type="button" data-value="${option.value}" aria-pressed="${selected}">
+      <span class="option-icon" aria-hidden="true">${option.icon}</span>
+      <span class="option-copy">
+        <strong>${option.label}</strong>
+        <small>${option.detail}</small>
+      </span>
+    </button>
+  `;
+}
+
+function selectOption(question, value) {
+  if (question.type === "multiple") {
+    const selected = state.answers[question.key] || [];
+    if (selected.includes(value)) {
+      state.answers[question.key] = selected.filter((item) => item !== value);
+    } else if (selected.length < question.max) {
+      state.answers[question.key] = [...selected, value];
+    } else {
+      showToast(`Puedes elegir hasta ${question.max} intereses`);
+      return;
+    }
+  } else {
+    state.answers[question.key] = value;
+  }
+
+  renderQuestion();
+}
+
+function updateNextButton() {
+  const question = questions[state.step];
+  const answer = state.answers[question.key];
+  const valid = Array.isArray(answer) ? answer.length > 0 : Boolean(answer);
+  elements.nextButton.disabled = !valid;
+  elements.nextButton.textContent = state.step === questions.length - 1 ? "Ver mis regalos" : "Continuar";
+  elements.selectionHint.textContent = question.type === "multiple"
+    ? `${answer?.length || 0} de ${question.max} intereses elegidos`
+    : valid ? "Respuesta guardada" : "Elige una opción para continuar";
+}
+
+function goBack() {
+  if (state.step === 0) return;
+  state.step -= 1;
+  renderQuestion();
+}
+
+function goNext() {
+  if (elements.nextButton.disabled) return;
+  if (state.step < questions.length - 1) {
+    state.step += 1;
+    renderQuestion();
+    return;
+  }
+
+  state.results = calculateResults();
+  incrementMetric("quizzesCompleted");
+  showResults();
+}
+
+function calculateResults() {
+  const [budgetMin, budgetMax] = budgetRange(state.answers.budget);
+  const ranked = gifts.map((item) => {
+    let score = 0;
+    const matches = [];
+    const interestMatches = item.interests.filter((interest) => state.answers.interests.includes(interest));
+
+    score += recipientFit(item, state.answers.recipient);
+    score += occasionFit(item, state.answers.occasion);
+    if (item.ages.includes(state.answers.age)) score += 4;
+    if (item.vibes.includes(state.answers.vibe)) {
+      score += 5;
+      matches.push(labelFor("vibe", state.answers.vibe).toLowerCase());
+    }
+    score += interestMatches.length * 6;
+    if (interestMatches.length) {
+      matches.unshift(interestMatches.map((value) => labelFor("interests", value).toLowerCase()).join(" y "));
+    }
+    if (item.price >= budgetMin && item.price <= budgetMax) score += 7;
+    if (item.price <= budgetMax) score += 2;
+
+    return { ...item, score, matches };
+  });
+
+  const withinBudget = ranked.filter((item) => item.price >= budgetMin && item.price <= budgetMax);
+  const pool = withinBudget.length >= 6 ? withinBudget : ranked.filter((item) => item.price <= budgetMax);
+  return pool.sort((a, b) => b.score - a.score || a.price - b.price).slice(0, 6);
+}
+
+function recipientFit(item, recipient) {
+  const rules = {
+    pareja: { vibes: ["emocional", "experiencia", "elegante"], interests: ["viajes", "fotografia", "musica"] },
+    amigo: { vibes: ["divertido", "original", "experiencia"], interests: ["gaming", "musica", "deporte"] },
+    familia: { vibes: ["emocional", "util", "experiencia"], interests: ["familia", "cocina", "fotografia"] },
+    hermano: { vibes: ["divertido", "util", "original"], interests: ["gaming", "tecnologia", "deporte"] },
+    companero: { vibes: ["util", "divertido", "elegante"], interests: ["cocina", "tecnologia", "bienestar"] },
+    nino: { vibes: ["divertido", "experiencia", "original"], interests: ["gaming", "arte", "lectura"] }
+  };
+  const rule = rules[recipient];
+  if (!rule) return 0;
+  const vibeMatch = item.vibes.some((vibe) => rule.vibes.includes(vibe)) ? 3 : 0;
+  const interestMatch = item.interests.some((interest) => rule.interests.includes(interest)) ? 3 : 0;
+  const colleagueBudgetFit = recipient === "companero" && item.price <= 30 ? 3 : 0;
+  return vibeMatch + interestMatch + colleagueBudgetFit;
+}
+
+function occasionFit(item, occasion) {
+  const rules = {
+    cumpleanos: { vibes: ["original", "experiencia", "emocional"] },
+    navidad: { vibes: ["util", "divertido", "elegante"] },
+    "amigo-invisible": { vibes: ["divertido", "original"], maxPrice: 30 },
+    aniversario: { vibes: ["emocional", "experiencia", "elegante"] },
+    agradecimiento: { vibes: ["emocional", "elegante"], maxPrice: 35 },
+    "porque-si": { vibes: ["original", "emocional"], maxPrice: 40 }
+  };
+  const rule = rules[occasion];
+  if (!rule) return 0;
+  const vibeMatch = item.vibes.some((vibe) => rule.vibes.includes(vibe)) ? 4 : 0;
+  const priceMatch = rule.maxPrice && item.price <= rule.maxPrice ? 3 : 0;
+  return vibeMatch + priceMatch;
+}
+
+function budgetRange(value) {
+  const ranges = {
+    "0-15": [0, 15],
+    "15-30": [15, 30],
+    "30-60": [30, 60],
+    "60-100": [60, 100],
+    "100+": [100, 1000]
+  };
+  return ranges[value] || [0, 1000];
+}
+
+function showResults() {
+  elements.quizSection.classList.add("hidden");
+  elements.resultsSection.classList.remove("hidden");
+  const recipient = labelFor("recipient", state.answers.recipient).toLowerCase();
+  const budget = labelFor("budget", state.answers.budget).toLowerCase();
+  elements.resultSummary.textContent = `Ideas para ${recipient}, con un presupuesto de ${budget}.`;
+  renderResultCards();
+  renderFeedbackForm();
+  scrollToSection(elements.resultsSection);
+}
+
+function renderFeedbackForm() {
+  elements.feedbackForm.reset();
+  elements.feedbackForm.classList.remove("hidden");
+  elements.feedbackSuccess.classList.add("hidden");
+  const select = document.getElementById("chosenGift");
+  select.innerHTML = `<option value="">Elige una idea</option>${state.results.map((item) => `<option value="${item.id}">${item.name}</option>`).join("")}`;
+  elements.testProgress.textContent = `Prueba ${Math.min(getFeedback().length + 1, 5)} de 5`;
+}
+
+function saveFeedback(event) {
+  event.preventDefault();
+  const formData = new FormData(elements.feedbackForm);
+  const feedback = getFeedback();
+  const existingIndex = feedback.findIndex((item) => item.sessionId === state.sessionId);
+  const entry = {
+    sessionId: state.sessionId,
+    createdAt: new Date().toISOString(),
+    rating: Number(formData.get("rating")),
+    purchaseIntent: formData.get("purchaseIntent"),
+    chosenGift: formData.get("chosenGift"),
+    comment: String(formData.get("comment") || "").trim(),
+    answers: { ...state.answers, interests: [...state.answers.interests] },
+    results: state.results.map((item) => item.id)
+  };
+
+  if (existingIndex >= 0) feedback[existingIndex] = entry;
+  else feedback.push(entry);
+  localStorage.setItem("regalometro_feedback", JSON.stringify(feedback));
+  incrementMetric("feedbackSubmitted");
+  elements.feedbackForm.classList.add("hidden");
+  elements.feedbackSuccess.classList.remove("hidden");
+  elements.testProgress.textContent = `${Math.min(feedback.length, 5)} de 5 completadas`;
+  showToast("Valoración guardada");
+}
+
+function getFeedback() {
+  return safeJsonParse(localStorage.getItem("regalometro_feedback"), []);
+}
+
+function createSessionId() {
+  if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID();
+  return `test-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+}
+
+function renderResultCards() {
+  const favorites = getFavorites();
+  elements.resultsGrid.innerHTML = state.results.map((item, index) => `
+    <article class="gift-card">
+      <div class="gift-card-visual" style="--card-color: ${colorPalette[index % colorPalette.length]}">
+        <span aria-hidden="true">${item.emoji}</span>
+        <div class="match-badge">${matchPercentage(item.score)}% de afinidad</div>
+        <button class="favorite-button ${favorites.includes(item.id) ? "active" : ""}" type="button" data-favorite="${item.id}" aria-label="Guardar ${item.name}" aria-pressed="${favorites.includes(item.id)}">${favorites.includes(item.id) ? "♥" : "♡"}</button>
+      </div>
+      <div class="gift-card-body">
+        <div class="gift-meta">
+          <span>${item.interests.slice(0, 2).map((interest) => labelFor("interests", interest)).join(" · ")}</span>
+          <span class="gift-price">≈ ${item.price} €</span>
+        </div>
+        <h3>${item.name}</h3>
+        <p class="gift-description">${item.description}</p>
+        <p class="gift-reason"><strong>Por qué encaja</strong><br>${reasonFor(item)}</p>
+        <a class="shop-button" href="${shoppingUrl(item)}" target="_blank" rel="noopener" data-shop="${item.id}">Ver opciones online</a>
+      </div>
+    </article>
+  `).join("");
+
+  elements.resultsGrid.querySelectorAll("[data-favorite]").forEach((button) => {
+    button.addEventListener("click", () => toggleFavorite(button.dataset.favorite));
+  });
+
+  elements.resultsGrid.querySelectorAll("[data-shop]").forEach((link) => {
+    link.addEventListener("click", () => incrementMetric("shopClicks"));
+  });
+}
+
+function matchPercentage(score) {
+  return Math.min(98, Math.max(72, 68 + score));
+}
+
+function reasonFor(item) {
+  if (item.matches.length > 1) return `Coincide con ${item.matches[0]} y busca ${item.matches[1]}.`;
+  if (item.matches.length === 1) return `Encaja con ${item.matches[0]} y se mantiene dentro del presupuesto.`;
+  return "Es una opción versátil que se mantiene dentro del presupuesto elegido.";
+}
+
+function shoppingUrl(item) {
+  return `https://www.google.com/search?tbm=shop&q=${encodeURIComponent(item.query)}`;
+}
+
+function labelFor(questionKey, value) {
+  const question = questions.find((item) => item.key === questionKey);
+  return question?.options.find((option) => option.value === value)?.label || value;
+}
+
+function toggleFavorite(id) {
+  const favorites = getFavorites();
+  const isSaved = favorites.includes(id);
+  const next = isSaved ? favorites.filter((item) => item !== id) : [...favorites, id];
+  localStorage.setItem("regalometro_favorites", JSON.stringify(next));
+  if (!isSaved) incrementMetric("favoritesAdded");
+  updateFavoritesCount();
+  if (!elements.resultsSection.classList.contains("hidden")) renderResultCards();
+  showToast(isSaved ? "Eliminado de favoritos" : "Guardado en favoritos");
+}
+
+function getFavorites() {
+  return safeJsonParse(localStorage.getItem("regalometro_favorites"), []);
+}
+
+function updateFavoritesCount() {
+  elements.favoritesCount.textContent = getFavorites().length;
+}
+
+function showFavorites() {
+  const favoriteIds = getFavorites();
+  const favoriteGifts = gifts.filter((item) => favoriteIds.includes(item.id));
+  elements.favoritesList.innerHTML = favoriteGifts.length
+    ? favoriteGifts.map((item) => `
+      <div class="favorite-list-item">
+        <div class="favorite-list-icon" aria-hidden="true">${item.emoji}</div>
+        <div>
+          <h3>${item.name}</h3>
+          <p>Precio aproximado ${item.price} €</p>
+        </div>
+        <a class="secondary-button" href="${shoppingUrl(item)}" target="_blank" rel="noopener" data-favorite-shop>Ver opciones</a>
+      </div>
+    `).join("")
+    : `<div class="empty-state"><span aria-hidden="true">♡</span><h3>Aún no has guardado regalos</h3><p>Completa el test y toca el corazón de las ideas que te gusten.</p></div>`;
+
+  elements.favoritesList.querySelectorAll("[data-favorite-shop]").forEach((link) => {
+    link.addEventListener("click", () => incrementMetric("shopClicks"));
+  });
+  elements.favoritesModal.showModal();
+}
+
+async function shareResults() {
+  const names = state.results.slice(0, 3).map((item) => item.name).join(", ");
+  const text = `Mis ideas de Regalómetro son ${names}.`;
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: "Mis ideas de regalo", text, url: window.location.href });
+      incrementMetric("shares");
+      return;
+    } catch (error) {
+      if (error.name === "AbortError") return;
+    }
+  }
+
+  try {
+    await navigator.clipboard.writeText(`${text} ${window.location.href}`);
+    incrementMetric("shares");
+    showToast("Enlace y resultados copiados");
+  } catch {
+    showToast("No se ha podido copiar. Prueba desde el navegador del móvil");
+  }
+}
+
+function getMetrics() {
+  return safeJsonParse(localStorage.getItem("regalometro_metrics"), {
+    visits: 0,
+    quizzesStarted: 0,
+    quizzesCompleted: 0,
+    shopClicks: 0,
+    favoritesAdded: 0,
+    shares: 0,
+    feedbackSubmitted: 0
+  });
+}
+
+function incrementMetric(key) {
+  const metrics = getMetrics();
+  metrics[key] = (metrics[key] || 0) + 1;
+  localStorage.setItem("regalometro_metrics", JSON.stringify(metrics));
+}
+
+function showStats() {
+  const metrics = getMetrics();
+  const feedback = getFeedback();
+  const averageRating = feedback.length
+    ? (feedback.reduce((total, item) => total + item.rating, 0) / feedback.length).toFixed(1)
+    : "—";
+  const positiveIntent = feedback.length
+    ? Math.round((feedback.filter((item) => item.purchaseIntent !== "no").length / feedback.length) * 100)
+    : 0;
+  const completion = metrics.quizzesStarted
+    ? Math.round((metrics.quizzesCompleted / metrics.quizzesStarted) * 100)
+    : 0;
+  const stats = [
+    [metrics.visits, "Visitas en este navegador"],
+    [metrics.quizzesStarted, "Tests iniciados"],
+    [metrics.quizzesCompleted, "Tests terminados"],
+    [`${completion}%`, "Tasa de finalización"],
+    [metrics.shopClicks, "Clics hacia tiendas"],
+    [metrics.favoritesAdded, "Regalos guardados"],
+    [metrics.shares, "Resultados compartidos"],
+    [getFavorites().length, "Favoritos actuales"],
+    [`${feedback.length}/5`, "Pruebas recogidas"],
+    [averageRating, "Valoración media sobre 5"],
+    [`${positiveIntent}%`, "Sí o quizás comprarían"]
+  ];
+  elements.statsGrid.innerHTML = stats.map(([value, label]) => `
+    <div class="stat-card"><strong>${value}</strong><span>${label}</span></div>
+  `).join("");
+  elements.feedbackInsights.innerHTML = feedbackInsightsMarkup(feedback);
+  if (!elements.statsModal.open) elements.statsModal.showModal();
+}
+
+function feedbackInsightsMarkup(feedback) {
+  if (!feedback.length) {
+    return `<h3>Aún no hay valoraciones</h3><p>Haz el test con cinco personas y aquí aparecerán las ideas más elegidas y los comentarios.</p>`;
+  }
+
+  const choiceCounts = feedback.reduce((counts, item) => {
+    counts[item.chosenGift] = (counts[item.chosenGift] || 0) + 1;
+    return counts;
+  }, {});
+  const topChoice = Object.entries(choiceCounts).sort((a, b) => b[1] - a[1])[0];
+  const topGift = gifts.find((item) => item.id === topChoice?.[0]);
+  const comments = feedback.filter((item) => item.comment).map((item) => escapeHtml(item.comment));
+
+  return `
+    <h3>Lo que estamos aprendiendo</h3>
+    <ul>
+      <li>La idea más elegida es <strong>${topGift?.name || "sin datos"}</strong>.</li>
+      <li>${feedback.filter((item) => item.purchaseIntent === "si").length} personas respondieron que considerarían uno de los regalos.</li>
+      <li>${comments.length ? `Último comentario: “${comments.at(-1)}”` : "Todavía no hay comentarios escritos."}</li>
+    </ul>
+  `;
+}
+
+function exportFeedbackCsv() {
+  const feedback = getFeedback();
+  if (!feedback.length) {
+    showToast("Todavía no hay pruebas para exportar");
+    return;
+  }
+  const headers = ["fecha", "valoracion", "intencion_compra", "regalo_elegido", "persona", "ocasion", "edad", "intereses", "presupuesto", "estilo", "comentario"];
+  const rows = feedback.map((item) => [
+    item.createdAt,
+    item.rating,
+    item.purchaseIntent,
+    gifts.find((giftItem) => giftItem.id === item.chosenGift)?.name || item.chosenGift,
+    item.answers.recipient,
+    item.answers.occasion,
+    item.answers.age,
+    item.answers.interests.join(" | "),
+    item.answers.budget,
+    item.answers.vibe,
+    item.comment
+  ]);
+  const csv = [headers, ...rows].map((row) => row.map(csvCell).join(",")).join("\n");
+  const url = URL.createObjectURL(new Blob([`\ufeff${csv}`], { type: "text/csv;charset=utf-8" }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "pruebas-regalometro.csv";
+  link.click();
+  URL.revokeObjectURL(url);
+  showToast("Archivo CSV preparado");
+}
+
+async function copyFeedbackSummary() {
+  const summary = buildFeedbackSummary();
+  try {
+    await navigator.clipboard.writeText(summary);
+    showToast("Resumen copiado");
+  } catch {
+    showToast("No se ha podido copiar el resumen");
+  }
+}
+
+function buildFeedbackSummary() {
+  const feedback = getFeedback();
+  if (!feedback.length) return "Regalómetro todavía no tiene pruebas recogidas.";
+  const average = (feedback.reduce((total, item) => total + item.rating, 0) / feedback.length).toFixed(1);
+  const positive = feedback.filter((item) => item.purchaseIntent !== "no").length;
+  return `Pruebas de Regalómetro\nPersonas: ${feedback.length}\nValoración media: ${average}/5\nSí o quizás usarían una recomendación: ${positive}/${feedback.length}\nComentarios: ${feedback.filter((item) => item.comment).map((item) => item.comment).join(" | ") || "Sin comentarios"}`;
+}
+
+function csvCell(value) {
+  return `"${String(value ?? "").replaceAll('"', '""')}"`;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function resetStats() {
+  localStorage.removeItem("regalometro_metrics");
+  localStorage.removeItem("regalometro_feedback");
+  showStats();
+  showToast("Estadísticas reiniciadas");
+}
+
+function safeJsonParse(value, fallback) {
+  try {
+    return value ? JSON.parse(value) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function showToast(message) {
+  elements.toast.textContent = message;
+  elements.toast.classList.add("visible");
+  window.clearTimeout(showToast.timeout);
+  showToast.timeout = window.setTimeout(() => elements.toast.classList.remove("visible"), 2200);
+}
+
+function scrollToSection(element) {
+  element.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+    </script>
+  </body>
+</html>
