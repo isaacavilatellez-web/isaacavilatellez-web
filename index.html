@@ -1291,30 +1291,45 @@ h3 {
 
   .quiz-section,
   .results-section {
-    margin-top: 22px;
+    margin-top: 10px;
   }
 
   .quiz-shell {
-    padding: 18px 18px 10px;
+    padding: 12px 14px 10px;
     border-radius: 24px;
   }
 
   .quiz-topline {
-    position: sticky;
-    z-index: 12;
-    top: 82px;
-    margin: -8px -8px 0;
-    padding: 8px;
-    border: 1px solid rgba(236, 228, 228, 0.9);
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.96);
-    box-shadow: 0 8px 24px rgba(52, 31, 43, 0.08);
-    backdrop-filter: blur(14px);
+    position: static;
+    margin: 0;
+    padding: 0 0 10px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .progress-track {
+    margin-top: 8px;
   }
 
   .quiz-content {
-    min-height: 440px;
-    padding-top: 34px;
+    min-height: auto;
+    padding: 20px 0 18px;
+  }
+
+  .question-heading {
+    margin-bottom: 20px;
+  }
+
+  .question-heading h2 {
+    margin-bottom: 10px;
+    font-size: clamp(2rem, 9vw, 2.75rem);
+  }
+
+  .question-heading p {
+    margin-bottom: 0;
   }
 
   .options-grid,
@@ -1325,7 +1340,7 @@ h3 {
   }
 
   .option-card {
-    min-height: 82px;
+    min-height: 78px;
     padding: 13px;
   }
 
@@ -1949,7 +1964,6 @@ function renderQuestion() {
 
   elements.quizContent.innerHTML = `
     <div class="question-heading">
-      <p class="eyebrow">Una pista más</p>
       <h2>${question.title}</h2>
       <p>${question.description}</p>
     </div>
