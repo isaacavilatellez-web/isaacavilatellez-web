@@ -446,9 +446,21 @@ h3 {
 }
 
 .back-button {
-  padding: 7px 0;
+  display: grid;
+  width: 42px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
   color: var(--muted);
+  border-radius: 12px;
+  background: #f8f3f4;
+  font-size: 1.55rem;
   font-weight: 800;
+}
+
+.back-button:hover {
+  color: var(--ink);
+  background: var(--pink-soft);
 }
 
 .close-button {
@@ -1472,9 +1484,9 @@ h3 {
       <section class="quiz-section hidden" id="quizSection" aria-live="polite">
         <div class="quiz-shell">
           <div class="quiz-topline">
-            <button class="back-button" id="backButton" type="button" aria-label="Volver a la pregunta anterior">Atrás</button>
+            <button class="back-button" id="backButton" type="button" aria-label="Volver a la pregunta anterior"><span aria-hidden="true">←</span></button>
             <p id="stepLabel">Pregunta 1 de 6</p>
-            <button class="exit-button" id="closeQuizButton" type="button">Salir al inicio</button>
+            <button class="exit-button" id="closeQuizButton" type="button">Salir</button>
           </div>
           <div class="progress-track" aria-hidden="true">
             <div class="progress-bar" id="progressBar"></div>
