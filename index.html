@@ -417,6 +417,7 @@ h3 {
 .results-section {
   width: min(1050px, calc(100% - 32px));
   margin: 40px auto 100px;
+  scroll-margin-top: 96px;
 }
 
 .quiz-shell {
@@ -461,6 +462,21 @@ h3 {
 
 .close-button:hover {
   background: #f8f1f2;
+}
+
+.exit-button {
+  min-height: 40px;
+  padding: 0 13px;
+  color: var(--coral-dark);
+  border: 1px solid #f1c6cf;
+  border-radius: 12px;
+  background: #fff5f7;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.exit-button:hover {
+  background: var(--pink-soft);
 }
 
 .progress-track {
@@ -1267,8 +1283,21 @@ h3 {
   }
 
   .quiz-shell {
-    padding: 18px;
+    padding: 18px 18px 10px;
     border-radius: 24px;
+  }
+
+  .quiz-topline {
+    position: sticky;
+    z-index: 12;
+    top: 82px;
+    margin: -8px -8px 0;
+    padding: 8px;
+    border: 1px solid rgba(236, 228, 228, 0.9);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 8px 24px rgba(52, 31, 43, 0.08);
+    backdrop-filter: blur(14px);
   }
 
   .quiz-content {
@@ -1289,20 +1318,43 @@ h3 {
   }
 
   .quiz-footer {
+    position: sticky;
+    z-index: 14;
+    bottom: max(10px, env(safe-area-inset-bottom));
     align-items: stretch;
-    flex-direction: column;
+    margin: 0 -8px -2px;
+    padding: 11px;
+    border: 1px solid rgba(236, 228, 228, 0.96);
+    border-radius: 17px;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 -8px 30px rgba(52, 31, 43, 0.13);
+    backdrop-filter: blur(16px);
+  }
+
+  .quiz-footer p {
+    display: none;
   }
 
   .quiz-footer .primary-button {
     width: 100%;
+    min-height: 56px;
+    font-size: 1.03rem;
   }
 
   .results-actions {
+    display: grid;
     width: 100%;
+    grid-template-columns: 1fr 1fr;
   }
 
   .results-actions button {
-    flex: 1;
+    width: 100%;
+  }
+
+  .results-actions .primary-button {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-height: 54px;
   }
 
   .seasonal-card {
@@ -1422,7 +1474,7 @@ h3 {
           <div class="quiz-topline">
             <button class="back-button" id="backButton" type="button" aria-label="Volver a la pregunta anterior">Atrás</button>
             <p id="stepLabel">Pregunta 1 de 6</p>
-            <button class="close-button" id="closeQuizButton" type="button" aria-label="Cerrar cuestionario">×</button>
+            <button class="exit-button" id="closeQuizButton" type="button">Salir al inicio</button>
           </div>
           <div class="progress-track" aria-hidden="true">
             <div class="progress-bar" id="progressBar"></div>
@@ -1444,7 +1496,8 @@ h3 {
           </div>
           <div class="results-actions">
             <button class="secondary-button" id="shareButton" type="button">Compartir</button>
-            <button class="secondary-button" id="restartButton" type="button">Repetir test</button>
+            <button class="secondary-button" id="homeFromResultsButton" type="button">Volver al inicio</button>
+            <button class="primary-button" id="restartButton" type="button">Hacer otro test</button>
           </div>
         </div>
         <div class="results-grid" id="resultsGrid"></div>
@@ -1818,6 +1871,7 @@ function bindEvents() {
   elements.backButton.addEventListener("click", goBack);
   elements.nextButton.addEventListener("click", goNext);
   document.getElementById("restartButton").addEventListener("click", restartQuiz);
+  document.getElementById("homeFromResultsButton").addEventListener("click", returnToHome);
   document.getElementById("adjustButton").addEventListener("click", adjustAnswers);
   document.getElementById("shareButton").addEventListener("click", shareResults);
   document.getElementById("favoritesButton").addEventListener("click", showFavorites);
@@ -1853,7 +1907,12 @@ function startQuiz() {
 }
 
 function closeQuiz() {
+  returnToHome();
+}
+
+function returnToHome() {
   elements.quizSection.classList.add("hidden");
+  elements.resultsSection.classList.add("hidden");
   elements.hero.classList.remove("hidden");
   scrollToSection(elements.hero);
 }
@@ -1944,6 +2003,7 @@ function goBack() {
   if (state.step === 0) return;
   state.step -= 1;
   renderQuestion();
+  moveToQuestionStart();
 }
 
 function goNext() {
@@ -1951,12 +2011,28 @@ function goNext() {
   if (state.step < questions.length - 1) {
     state.step += 1;
     renderQuestion();
+    moveToQuestionStart();
     return;
   }
 
   state.results = calculateResults();
   incrementMetric("quizzesCompleted");
   showResults();
+}
+
+function moveToQuestionStart() {
+  window.requestAnimationFrame(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    elements.quizSection.scrollIntoView({
+      behavior: reducedMotion ? "auto" : "smooth",
+      block: "start"
+    });
+    const heading = elements.quizContent.querySelector("h2");
+    if (heading) {
+      heading.setAttribute("tabindex", "-1");
+      heading.focus({ preventScroll: true });
+    }
+  });
 }
 
 function calculateResults() {
