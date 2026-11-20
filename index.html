@@ -93,15 +93,12 @@ button {
   text-decoration: none;
 }
 
-.brand-mark {
-  display: grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  color: white;
-  border-radius: 11px;
-  background: var(--coral);
-  box-shadow: 0 8px 18px rgba(255, 92, 122, 0.28);
+.brand-logo {
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+  overflow: visible;
+  filter: drop-shadow(0 7px 7px rgba(111, 75, 232, 0.2));
 }
 
 .header-actions,
@@ -1444,7 +1441,33 @@ h3 {
   <body>
     <header class="site-header">
       <a class="brand" href="#inicio" aria-label="Ir al inicio de Regalómetro">
-        <span class="brand-mark" aria-hidden="true">R</span>
+        <svg class="brand-logo" viewBox="0 0 128 128" aria-hidden="true">
+          <defs>
+            <linearGradient id="logo-coral" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff6684" />
+              <stop offset="1" stop-color="#ff315f" />
+            </linearGradient>
+            <linearGradient id="logo-purple" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7655f4" />
+              <stop offset="1" stop-color="#5d35dc" />
+            </linearGradient>
+            <linearGradient id="logo-yellow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffd866" />
+              <stop offset="1" stop-color="#ffba2f" />
+            </linearGradient>
+          </defs>
+          <path d="M18 60a48 48 0 0 1 15-31" fill="none" stroke="url(#logo-purple)" stroke-linecap="round" stroke-width="15" />
+          <path d="M44 20a48 48 0 0 1 40 0" fill="none" stroke="url(#logo-coral)" stroke-linecap="round" stroke-width="15" />
+          <path d="M95 30a48 48 0 0 1 15 30" fill="none" stroke="url(#logo-yellow)" stroke-linecap="round" stroke-width="15" />
+          <path d="M105 16l2.8 6.2 6.2 2.8-6.2 2.8-2.8 6.2-2.8-6.2-6.2-2.8 6.2-2.8z" fill="url(#logo-yellow)" />
+          <rect x="29" y="76" width="70" height="18" rx="9" fill="url(#logo-coral)" />
+          <path d="M35 96h58v19a9 9 0 0 1-9 9H44a9 9 0 0 1-9-9z" fill="url(#logo-coral)" />
+          <path d="M64 80c-8-15-25-20-29-10-4 11 14 13 29 20 15-7 33-9 29-20-4-10-21-5-29 10z" fill="none" stroke="url(#logo-yellow)" stroke-width="8" />
+          <path d="M64 76v48" stroke="url(#logo-yellow)" stroke-width="10" />
+          <path d="M64 61l31-27" stroke="#2a2034" stroke-linecap="round" stroke-width="8" />
+          <circle cx="64" cy="61" r="12" fill="#2a2034" />
+          <circle cx="64" cy="61" r="5" fill="url(#logo-yellow)" />
+        </svg>
         <span>Regalómetro</span>
       </a>
       <nav class="header-actions" aria-label="Navegación principal">
@@ -1641,7 +1664,33 @@ h3 {
 
     <footer class="site-footer">
       <a class="brand footer-brand" href="#inicio">
-        <span class="brand-mark" aria-hidden="true">R</span>
+        <svg class="brand-logo" viewBox="0 0 128 128" aria-hidden="true">
+          <defs>
+            <linearGradient id="footer-logo-coral" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff6684" />
+              <stop offset="1" stop-color="#ff315f" />
+            </linearGradient>
+            <linearGradient id="footer-logo-purple" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7655f4" />
+              <stop offset="1" stop-color="#5d35dc" />
+            </linearGradient>
+            <linearGradient id="footer-logo-yellow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffd866" />
+              <stop offset="1" stop-color="#ffba2f" />
+            </linearGradient>
+          </defs>
+          <path d="M18 60a48 48 0 0 1 15-31" fill="none" stroke="url(#footer-logo-purple)" stroke-linecap="round" stroke-width="15" />
+          <path d="M44 20a48 48 0 0 1 40 0" fill="none" stroke="url(#footer-logo-coral)" stroke-linecap="round" stroke-width="15" />
+          <path d="M95 30a48 48 0 0 1 15 30" fill="none" stroke="url(#footer-logo-yellow)" stroke-linecap="round" stroke-width="15" />
+          <path d="M105 16l2.8 6.2 6.2 2.8-6.2 2.8-2.8 6.2-2.8-6.2-6.2-2.8 6.2-2.8z" fill="url(#footer-logo-yellow)" />
+          <rect x="29" y="76" width="70" height="18" rx="9" fill="url(#footer-logo-coral)" />
+          <path d="M35 96h58v19a9 9 0 0 1-9 9H44a9 9 0 0 1-9-9z" fill="url(#footer-logo-coral)" />
+          <path d="M64 80c-8-15-25-20-29-10-4 11 14 13 29 20 15-7 33-9 29-20-4-10-21-5-29 10z" fill="none" stroke="url(#footer-logo-yellow)" stroke-width="8" />
+          <path d="M64 76v48" stroke="url(#footer-logo-yellow)" stroke-width="10" />
+          <path d="M64 61l31-27" stroke="#2a2034" stroke-linecap="round" stroke-width="8" />
+          <circle cx="64" cy="61" r="12" fill="#2a2034" />
+          <circle cx="64" cy="61" r="5" fill="url(#footer-logo-yellow)" />
+        </svg>
         <span>Regalómetro</span>
       </a>
       <p>Una primera versión para descubrir regalos con más intención.</p>
