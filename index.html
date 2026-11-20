@@ -15,1431 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-:root {
-  --ink: #231b2d;
-  --muted: #6c6375;
-  --paper: #fffaf8;
-  --surface: #ffffff;
-  --line: #ece4e4;
-  --coral: #ff5c7a;
-  --coral-dark: #e63d61;
-  --pink-soft: #ffe6ec;
-  --purple: #6f4be8;
-  --purple-soft: #eee9ff;
-  --yellow: #ffd65a;
-  --yellow-soft: #fff4c5;
-  --green: #2e9c70;
-  --shadow: 0 22px 70px rgba(77, 43, 59, 0.12);
-  --radius-xl: 34px;
-  --radius-lg: 24px;
-  --radius-md: 16px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  color: var(--ink);
-  background:
-    radial-gradient(circle at 7% 10%, rgba(255, 214, 90, 0.22), transparent 23rem),
-    radial-gradient(circle at 92% 17%, rgba(111, 75, 232, 0.12), transparent 25rem),
-    var(--paper);
-  font-family: "DM Sans", sans-serif;
-  font-size: 16px;
-  line-height: 1.55;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-button {
-  font: inherit;
-}
-
-.site-header {
-  position: sticky;
-  z-index: 20;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: min(1180px, calc(100% - 32px));
-  margin: 16px auto 0;
-  padding: 12px 14px 12px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  background: rgba(255, 250, 248, 0.84);
-  box-shadow: 0 10px 40px rgba(69, 42, 54, 0.08);
-  backdrop-filter: blur(18px);
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--ink);
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-size: 1.16rem;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.brand-mark {
-  display: grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  color: white;
-  border-radius: 11px;
-  background: var(--coral);
-  box-shadow: 0 8px 18px rgba(255, 92, 122, 0.28);
-}
-
-.header-actions,
-.results-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.text-button,
-.back-button,
-.close-button,
-.danger-text-button {
-  border: 0;
-  background: transparent;
-  color: var(--ink);
-  cursor: pointer;
-}
-
-.text-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 9px 11px;
-  border-radius: 12px;
-  font-weight: 700;
-}
-
-.text-button:hover {
-  background: white;
-}
-
-.counter {
-  display: grid;
-  min-width: 22px;
-  height: 22px;
-  padding: 0 6px;
-  place-items: center;
-  color: white;
-  border-radius: 999px;
-  background: var(--coral);
-  font-size: 0.78rem;
-}
-
-main {
-  overflow: hidden;
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  align-items: center;
-  width: min(1160px, calc(100% - 40px));
-  min-height: 690px;
-  margin: 0 auto;
-  padding: 76px 0 60px;
-  gap: 60px;
-}
-
-.eyebrow {
-  margin: 0 0 12px;
-  color: var(--coral-dark);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-h1,
-h2,
-h3,
-p {
-  margin-top: 0;
-}
-
-h1,
-h2,
-h3 {
-  font-family: "Bricolage Grotesque", sans-serif;
-  line-height: 1.05;
-}
-
-h1 {
-  max-width: 720px;
-  margin-bottom: 24px;
-  font-size: clamp(3rem, 6.5vw, 5.8rem);
-  letter-spacing: -0.065em;
-}
-
-h2 {
-  margin-bottom: 14px;
-  font-size: clamp(2.1rem, 4vw, 3.7rem);
-  letter-spacing: -0.045em;
-}
-
-h3 {
-  margin-bottom: 10px;
-  font-size: 1.28rem;
-}
-
-.hero-description {
-  max-width: 590px;
-  margin-bottom: 30px;
-  color: var(--muted);
-  font-size: 1.16rem;
-}
-
-.primary-button,
-.secondary-button,
-.shop-button {
-  display: inline-flex;
-  min-height: 50px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 14px;
-  cursor: pointer;
-  font-weight: 800;
-  text-decoration: none;
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-}
-
-.primary-button {
-  padding: 0 24px;
-  color: white;
-  border: 0;
-  background: var(--coral);
-  box-shadow: 0 13px 28px rgba(255, 92, 122, 0.26);
-}
-
-.primary-button:hover,
-.shop-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 17px 32px rgba(255, 92, 122, 0.3);
-}
-
-.primary-button:disabled {
-  cursor: default;
-  opacity: 0.45;
-  transform: none;
-  box-shadow: none;
-}
-
-.secondary-button {
-  min-height: 46px;
-  padding: 0 18px;
-  color: var(--ink);
-  border: 1px solid var(--line);
-  background: white;
-}
-
-.secondary-button:hover {
-  transform: translateY(-1px);
-  border-color: #d6c8cc;
-}
-
-.hero-proof {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 24px;
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 700;
-}
-
-.hero-proof span {
-  padding: 7px 11px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-}
-
-.hero-visual {
-  position: relative;
-  min-height: 500px;
-  border-radius: 50% 46% 45% 50%;
-  background:
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.9) 0 14%, transparent 15%),
-    linear-gradient(145deg, var(--pink-soft), #fff1cf 48%, var(--purple-soft));
-}
-
-.hero-visual::before,
-.hero-visual::after {
-  position: absolute;
-  content: "";
-  border-radius: 50%;
-}
-
-.hero-visual::before {
-  inset: 8%;
-  border: 2px dashed rgba(255, 92, 122, 0.2);
-}
-
-.hero-visual::after {
-  width: 34px;
-  height: 34px;
-  right: 7%;
-  bottom: 12%;
-  background: var(--yellow);
-  box-shadow: -420px -320px 0 -8px var(--purple), -390px 40px 0 -12px var(--coral);
-}
-
-.hero-gift {
-  position: absolute;
-  top: 51%;
-  left: 50%;
-  width: 180px;
-  height: 146px;
-  transform: translate(-50%, -39%) rotate(-4deg);
-  border-radius: 12px 12px 24px 24px;
-  background: var(--coral);
-  box-shadow: 0 35px 55px rgba(160, 54, 81, 0.28);
-}
-
-.lid {
-  position: absolute;
-  z-index: 2;
-  top: -23px;
-  left: -10px;
-  width: 200px;
-  height: 40px;
-  border-radius: 12px;
-  background: #ff7691;
-}
-
-.ribbon-vertical {
-  position: absolute;
-  z-index: 3;
-  top: -23px;
-  bottom: 0;
-  left: calc(50% - 17px);
-  width: 34px;
-  background: var(--yellow);
-}
-
-.ribbon-horizontal {
-  position: absolute;
-  z-index: 1;
-  top: 48px;
-  right: 0;
-  left: 0;
-  height: 31px;
-  background: var(--yellow);
-}
-
-.bow {
-  position: absolute;
-  z-index: 4;
-  top: -68px;
-  width: 62px;
-  height: 48px;
-  border: 13px solid var(--yellow);
-  background: transparent;
-}
-
-.bow-left {
-  left: 30px;
-  transform: rotate(22deg);
-  border-radius: 70% 35% 55% 30%;
-}
-
-.bow-right {
-  right: 30px;
-  transform: rotate(-22deg);
-  border-radius: 35% 70% 30% 55%;
-}
-
-.gift-orbit {
-  position: absolute;
-  z-index: 4;
-  display: flex;
-  width: 160px;
-  align-items: center;
-  gap: 10px;
-  padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 16px 34px rgba(66, 39, 55, 0.12);
-  backdrop-filter: blur(10px);
-}
-
-.gift-orbit span {
-  font-size: 1.8rem;
-}
-
-.gift-orbit small {
-  color: var(--muted);
-  font-size: 0.77rem;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-.orbit-one {
-  top: 7%;
-  left: 6%;
-  transform: rotate(-4deg);
-}
-
-.orbit-two {
-  top: 24%;
-  right: -2%;
-  transform: rotate(4deg);
-}
-
-.orbit-three {
-  bottom: 6%;
-  left: 8%;
-  transform: rotate(3deg);
-}
-
-.quiz-section,
-.results-section {
-  width: min(1050px, calc(100% - 32px));
-  margin: 40px auto 100px;
-  scroll-margin-top: 96px;
-}
-
-.quiz-shell {
-  padding: clamp(20px, 4vw, 42px);
-  border: 1px solid rgba(255, 255, 255, 0.86);
-  border-radius: var(--radius-xl);
-  background: rgba(255, 255, 255, 0.93);
-  box-shadow: var(--shadow);
-}
-
-.quiz-topline,
-.quiz-footer,
-.results-heading,
-.modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.quiz-topline p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.9rem;
-  font-weight: 800;
-}
-
-.back-button {
-  display: grid;
-  width: 42px;
-  height: 40px;
-  padding: 0;
-  place-items: center;
-  color: var(--muted);
-  border-radius: 12px;
-  background: #f8f3f4;
-  font-size: 1.55rem;
-  font-weight: 800;
-}
-
-.back-button:hover {
-  color: var(--ink);
-  background: var(--pink-soft);
-}
-
-.close-button {
-  display: grid;
-  width: 40px;
-  height: 40px;
-  place-items: center;
-  border-radius: 12px;
-  font-size: 1.5rem;
-}
-
-.close-button:hover {
-  background: #f8f1f2;
-}
-
-.exit-button {
-  min-height: 40px;
-  padding: 0 13px;
-  color: var(--coral-dark);
-  border: 1px solid #f1c6cf;
-  border-radius: 12px;
-  background: #fff5f7;
-  cursor: pointer;
-  font-weight: 800;
-}
-
-.exit-button:hover {
-  background: var(--pink-soft);
-}
-
-.progress-track {
-  height: 8px;
-  margin-top: 20px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: #f2eaec;
-}
-
-.progress-bar {
-  width: 16.66%;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, var(--coral), #ff9475);
-  transition: width 280ms ease;
-}
-
-.quiz-content {
-  min-height: 420px;
-  padding: 48px 0 28px;
-}
-
-.question-heading {
-  max-width: 720px;
-  margin-bottom: 28px;
-}
-
-.question-heading h2 {
-  margin-bottom: 12px;
-  font-size: clamp(2rem, 4.7vw, 3.4rem);
-}
-
-.question-heading p {
-  color: var(--muted);
-}
-
-.options-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.option-card {
-  display: flex;
-  min-height: 104px;
-  align-items: center;
-  gap: 14px;
-  padding: 18px;
-  color: var(--ink);
-  border: 2px solid var(--line);
-  border-radius: var(--radius-md);
-  background: white;
-  cursor: pointer;
-  text-align: left;
-  transition: transform 150ms ease, border 150ms ease, background 150ms ease;
-}
-
-.option-card:hover {
-  transform: translateY(-2px);
-  border-color: #e7b8c2;
-}
-
-.option-card.selected {
-  border-color: var(--coral);
-  background: var(--pink-soft);
-}
-
-.option-icon {
-  display: grid;
-  width: 48px;
-  height: 48px;
-  flex: 0 0 48px;
-  place-items: center;
-  border-radius: 14px;
-  background: #f8f4f4;
-  font-size: 1.55rem;
-}
-
-.option-copy strong {
-  display: block;
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-size: 1.02rem;
-}
-
-.option-copy small {
-  display: block;
-  margin-top: 3px;
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-
-.quiz-footer {
-  padding-top: 22px;
-  border-top: 1px solid var(--line);
-}
-
-.quiz-footer p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.88rem;
-}
-
-.results-heading {
-  align-items: flex-end;
-  margin-bottom: 34px;
-}
-
-.results-heading > div:first-child {
-  max-width: 690px;
-}
-
-.results-heading p:last-child {
-  margin-bottom: 0;
-  color: var(--muted);
-}
-
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.gift-card {
-  position: relative;
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  background: white;
-  box-shadow: 0 12px 40px rgba(64, 40, 48, 0.07);
-}
-
-.gift-card-visual {
-  position: relative;
-  display: grid;
-  min-height: 190px;
-  place-items: center;
-  background: var(--card-color, var(--pink-soft));
-}
-
-.gift-card-visual span {
-  filter: drop-shadow(0 12px 10px rgba(54, 31, 42, 0.12));
-  font-size: 5rem;
-  transform: rotate(-4deg);
-}
-
-.match-badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  padding: 7px 10px;
-  color: #176245;
-  border-radius: 999px;
-  background: #dcf8ec;
-  font-size: 0.76rem;
-  font-weight: 800;
-}
-
-.favorite-button {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  color: var(--ink);
-  border: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 8px 20px rgba(50, 28, 39, 0.12);
-  cursor: pointer;
-  font-size: 1.35rem;
-}
-
-.favorite-button.active {
-  color: white;
-  background: var(--coral);
-}
-
-.gift-card-body {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.gift-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 800;
-}
-
-.gift-price {
-  color: var(--ink);
-  font-size: 1rem;
-}
-
-.gift-card h3 {
-  margin-bottom: 9px;
-}
-
-.gift-description {
-  margin-bottom: 12px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.gift-reason {
-  margin: auto 0 18px;
-  padding: 12px;
-  border-radius: 12px;
-  background: #faf6f5;
-  font-size: 0.82rem;
-}
-
-.gift-reason strong {
-  color: var(--coral-dark);
-}
-
-.shop-button {
-  width: 100%;
-  min-height: 46px;
-  color: white;
-  background: var(--ink);
-}
-
-.shop-button:hover {
-  background: #392e43;
-  box-shadow: 0 12px 26px rgba(35, 27, 45, 0.2);
-}
-
-.results-more {
-  margin-top: 30px;
-  padding: 28px;
-  border: 1px dashed #e8b9c4;
-  border-radius: 22px;
-  background: rgba(255, 230, 236, 0.48);
-  text-align: center;
-}
-
-.feedback-card {
-  margin-top: 30px;
-  padding: clamp(22px, 4vw, 36px);
-  border: 1px solid #dfd4ff;
-  border-radius: 26px;
-  background: linear-gradient(145deg, #fff 0%, #f5f1ff 100%);
-  box-shadow: 0 16px 45px rgba(89, 64, 153, 0.1);
-}
-
-.feedback-heading {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 28px;
-}
-
-.feedback-heading h3 {
-  margin-bottom: 8px;
-  font-size: clamp(1.7rem, 4vw, 2.35rem);
-}
-
-.feedback-heading p:last-child {
-  margin-bottom: 0;
-  color: var(--muted);
-}
-
-.test-progress {
-  flex: 0 0 auto;
-  padding: 8px 12px;
-  color: #5136a8;
-  border-radius: 999px;
-  background: #e9e1ff;
-  font-size: 0.82rem;
-  font-weight: 800;
-}
-
-.feedback-fieldset {
-  margin: 0 0 22px;
-  padding: 0;
-  border: 0;
-}
-
-.feedback-fieldset legend,
-.feedback-label {
-  margin-bottom: 10px;
-  font-weight: 800;
-}
-
-.rating-options,
-.intent-options {
-  display: grid;
-  gap: 9px;
-}
-
-.rating-options {
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.intent-options {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.rating-options label,
-.intent-options label {
-  cursor: pointer;
-}
-
-.rating-options input,
-.intent-options input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.rating-options span,
-.intent-options span {
-  display: grid;
-  min-height: 62px;
-  place-items: center;
-  padding: 9px;
-  border: 2px solid var(--line);
-  border-radius: 14px;
-  background: white;
-  font-weight: 800;
-  transition: border 150ms ease, background 150ms ease, transform 150ms ease;
-}
-
-.rating-options span {
-  gap: 1px;
-}
-
-.rating-options small {
-  color: var(--muted);
-  font-size: 0.7rem;
-  font-weight: 600;
-}
-
-.rating-options label:hover span,
-.intent-options label:hover span {
-  transform: translateY(-1px);
-  border-color: #c7b7f4;
-}
-
-.rating-options input:checked + span,
-.intent-options input:checked + span {
-  color: #4d309f;
-  border-color: var(--purple);
-  background: var(--purple-soft);
-}
-
-.rating-options input:focus-visible + span,
-.intent-options input:focus-visible + span {
-  outline: 3px solid rgba(111, 75, 232, 0.25);
-  outline-offset: 2px;
-}
-
-.feedback-label {
-  display: block;
-  margin-bottom: 22px;
-}
-
-.feedback-label > span {
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.feedback-label select,
-.feedback-label textarea {
-  width: 100%;
-  margin-top: 9px;
-  color: var(--ink);
-  border: 2px solid var(--line);
-  border-radius: 14px;
-  background: white;
-  font: inherit;
-}
-
-.feedback-label select {
-  min-height: 50px;
-  padding: 0 44px 0 14px;
-  appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
-  background-position: calc(100% - 20px) 21px, calc(100% - 14px) 21px;
-  background-repeat: no-repeat;
-  background-size: 6px 6px, 6px 6px;
-}
-
-.feedback-label textarea {
-  padding: 13px 14px;
-  resize: vertical;
-}
-
-.feedback-label select:focus,
-.feedback-label textarea:focus {
-  border-color: var(--purple);
-  outline: 3px solid rgba(111, 75, 232, 0.15);
-}
-
-.feedback-success {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 16px;
-  padding: 20px;
-  border-radius: 18px;
-  background: #e3f8ee;
-}
-
-.feedback-success > span {
-  display: grid;
-  width: 46px;
-  height: 46px;
-  place-items: center;
-  color: white;
-  border-radius: 50%;
-  background: var(--green);
-  font-size: 1.4rem;
-  font-weight: 800;
-}
-
-.feedback-success h3,
-.feedback-success p {
-  margin: 0;
-}
-
-.feedback-success p {
-  color: #3f715e;
-  font-size: 0.88rem;
-}
-
-.feedback-success-actions {
-  display: flex;
-  gap: 8px;
-}
-
-.results-more p {
-  margin-bottom: 15px;
-  font-weight: 700;
-}
-
-.how-it-works,
-.seasonal-section {
-  width: min(1160px, calc(100% - 40px));
-  margin: 0 auto 110px;
-}
-
-.section-heading {
-  max-width: 760px;
-  margin-bottom: 38px;
-}
-
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.steps-grid article {
-  padding: 30px;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.78);
-}
-
-.steps-grid p {
-  margin-bottom: 0;
-  color: var(--muted);
-}
-
-.step-icon {
-  display: grid;
-  width: 56px;
-  height: 56px;
-  margin-bottom: 22px;
-  place-items: center;
-  border-radius: 17px;
-  background: var(--pink-soft);
-  font-size: 1.7rem;
-}
-
-.seasonal-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.seasonal-card {
-  display: flex;
-  min-height: 210px;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 26px;
-  border-radius: 24px;
-}
-
-.seasonal-card > span {
-  font-size: 3.1rem;
-}
-
-.seasonal-card p {
-  margin-bottom: 6px;
-  font-size: 0.82rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.seasonal-card h3 {
-  margin: 0;
-  font-size: 1.55rem;
-}
-
-.coral-card {
-  background: #ffbdc8;
-}
-
-.purple-card {
-  color: white;
-  background: var(--purple);
-}
-
-.yellow-card {
-  background: var(--yellow);
-}
-
-.site-footer {
-  display: grid;
-  justify-items: center;
-  padding: 54px 20px;
-  border-top: 1px solid var(--line);
-  background: white;
-  text-align: center;
-}
-
-.site-footer p {
-  max-width: 650px;
-  margin: 12px 0 0;
-  color: var(--muted);
-}
-
-.footer-note {
-  font-size: 0.78rem;
-}
-
-.modal {
-  width: min(780px, calc(100% - 28px));
-  max-height: 86vh;
-  padding: 28px;
-  overflow: auto;
-  color: var(--ink);
-  border: 0;
-  border-radius: 26px;
-  background: white;
-  box-shadow: var(--shadow);
-}
-
-.modal::backdrop {
-  background: rgba(35, 27, 45, 0.48);
-  backdrop-filter: blur(5px);
-}
-
-.modal-header {
-  align-items: flex-start;
-  margin-bottom: 24px;
-}
-
-.modal-header h2 {
-  margin-bottom: 0;
-  font-size: 2.3rem;
-}
-
-.modal-intro {
-  color: var(--muted);
-}
-
-.favorite-list-item {
-  display: grid;
-  grid-template-columns: 56px 1fr auto;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.favorite-list-item:last-child {
-  border-bottom: 0;
-}
-
-.favorite-list-icon {
-  display: grid;
-  width: 56px;
-  height: 56px;
-  place-items: center;
-  border-radius: 15px;
-  background: var(--pink-soft);
-  font-size: 1.8rem;
-}
-
-.favorite-list-item h3,
-.favorite-list-item p {
-  margin: 0;
-}
-
-.favorite-list-item p {
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-
-.empty-state {
-  padding: 48px 20px;
-  border-radius: 18px;
-  background: #faf6f5;
-  text-align: center;
-}
-
-.empty-state span {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 2.6rem;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin: 24px 0;
-}
-
-.stat-card {
-  padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: 17px;
-  background: #fcf8f7;
-}
-
-.stat-card strong {
-  display: block;
-  margin-bottom: 4px;
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-size: 2rem;
-}
-
-.stat-card span {
-  color: var(--muted);
-  font-size: 0.86rem;
-}
-
-.feedback-insights {
-  margin: 4px 0 20px;
-  padding: 18px;
-  border-radius: 16px;
-  background: var(--purple-soft);
-}
-
-.feedback-insights h3 {
-  margin-bottom: 12px;
-}
-
-.feedback-insights ul {
-  margin: 0;
-  padding-left: 20px;
-  color: var(--muted);
-}
-
-.feedback-insights li + li {
-  margin-top: 7px;
-}
-
-.stats-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.danger-text-button {
-  padding: 8px 0;
-  color: #b7354e;
-  font-weight: 800;
-}
-
-.toast {
-  position: fixed;
-  z-index: 50;
-  bottom: 24px;
-  left: 50%;
-  max-width: calc(100% - 32px);
-  padding: 12px 18px;
-  color: white;
-  border-radius: 12px;
-  background: var(--ink);
-  box-shadow: 0 14px 32px rgba(35, 27, 45, 0.25);
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, 18px);
-  transition: opacity 180ms ease, transform 180ms ease;
-}
-
-.toast.visible {
-  opacity: 1;
-  transform: translate(-50%, 0);
-}
-
-.hidden {
-  display: none !important;
-}
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 64px;
-  }
-
-  .hero-copy {
-    text-align: center;
-  }
-
-  .hero-description,
-  .hero-proof {
-    margin-right: auto;
-    margin-left: auto;
-    justify-content: center;
-  }
-
-  .hero-visual {
-    width: min(560px, 100%);
-    min-height: 470px;
-    margin: 0 auto;
-  }
-
-  .results-grid,
-  .steps-grid,
-  .seasonal-section {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .results-heading {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 680px) {
-  .site-header {
-    width: calc(100% - 20px);
-    margin-top: 10px;
-  }
-
-  .header-actions .text-button:last-child {
-    display: none;
-  }
-
-  .text-button {
-    padding-right: 5px;
-    padding-left: 5px;
-  }
-
-  .hero {
-    width: calc(100% - 28px);
-    min-height: auto;
-    padding: 54px 0 70px;
-    gap: 48px;
-  }
-
-  h1 {
-    font-size: clamp(2.9rem, 14vw, 4.2rem);
-  }
-
-  .hero-visual {
-    min-height: 390px;
-  }
-
-  .hero-gift {
-    width: 146px;
-    height: 125px;
-  }
-
-  .lid {
-    width: 164px;
-  }
-
-  .gift-orbit {
-    width: 130px;
-    padding: 9px;
-  }
-
-  .gift-orbit small {
-    font-size: 0.68rem;
-  }
-
-  .quiz-section,
-  .results-section {
-    margin-top: 10px;
-  }
-
-  .quiz-shell {
-    padding: 12px 14px 10px;
-    border-radius: 24px;
-  }
-
-  .quiz-topline {
-    position: static;
-    margin: 0;
-    padding: 0 0 10px;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-    backdrop-filter: none;
-  }
-
-  .progress-track {
-    margin-top: 8px;
-  }
-
-  .quiz-content {
-    min-height: auto;
-    padding: 20px 0 18px;
-  }
-
-  .question-heading {
-    margin-bottom: 20px;
-  }
-
-  .question-heading h2 {
-    margin-bottom: 10px;
-    font-size: clamp(2rem, 9vw, 2.75rem);
-  }
-
-  .question-heading p {
-    margin-bottom: 0;
-  }
-
-  .options-grid,
-  .results-grid,
-  .steps-grid,
-  .seasonal-section {
-    grid-template-columns: 1fr;
-  }
-
-  .option-card {
-    min-height: 78px;
-    padding: 13px;
-  }
-
-  .quiz-footer {
-    position: sticky;
-    z-index: 14;
-    bottom: max(10px, env(safe-area-inset-bottom));
-    align-items: stretch;
-    margin: 0 -8px -2px;
-    padding: 11px;
-    border: 1px solid rgba(236, 228, 228, 0.96);
-    border-radius: 17px;
-    background: rgba(255, 255, 255, 0.97);
-    box-shadow: 0 -8px 30px rgba(52, 31, 43, 0.13);
-    backdrop-filter: blur(16px);
-  }
-
-  .quiz-footer p {
-    display: none;
-  }
-
-  .quiz-footer .primary-button {
-    width: 100%;
-    min-height: 56px;
-    font-size: 1.03rem;
-  }
-
-  .results-actions {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .results-actions button {
-    width: 100%;
-  }
-
-  .results-actions .primary-button {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    min-height: 54px;
-  }
-
-  .seasonal-card {
-    min-height: 180px;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .feedback-heading,
-  .feedback-success {
-    align-items: stretch;
-    grid-template-columns: 1fr;
-    flex-direction: column;
-  }
-
-  .feedback-success-actions {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .rating-options {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
-  .rating-options span {
-    min-height: 56px;
-    padding: 6px 2px;
-  }
-
-  .rating-options small {
-    display: none;
-  }
-
-  .stats-actions .secondary-button {
-    width: 100%;
-  }
-
-  .favorite-list-item {
-    grid-template-columns: 48px 1fr;
-  }
-
-  .favorite-list-item .secondary-button {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
@@ -1834,6 +410,130 @@ const gifts = [
   gift("joya-especial", "Joya de diseño personalizada", "💍", 135, "Una pieza duradera creada alrededor de una fecha, inicial o símbolo.", ["moda", "arte"], ["emocional", "elegante"], ["18-25", "26-40", "41-60", "60+"], "joya diseño personalizada")
 ];
 
+gifts.push(
+  gift("bateria-externa", "Batería externa compacta", "🔋", 24, "Carga el móvil durante viajes, clases o jornadas largas.", ["tecnologia", "viajes"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "batería externa compacta"),
+  gift("cargador-inalambrico", "Cargador inalámbrico", "⚡", 29, "Mantiene el móvil cargado sin llenar la mesa de cables.", ["tecnologia"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "cargador inalámbrico móvil"),
+  gift("teclado-compacto", "Teclado compacto", "⌨️", 59, "Un escritorio más cómodo para estudiar, trabajar o jugar.", ["tecnologia", "gaming"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60"], "teclado compacto regalo"),
+  gift("raton-ergonomico", "Ratón ergonómico", "🖱️", 35, "Mejora la comodidad durante muchas horas frente al ordenador.", ["tecnologia", "gaming"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "ratón ergonómico"),
+  gift("enchufe-inteligente", "Enchufe inteligente", "🔌", 18, "Permite controlar lámparas y aparatos desde el móvil.", ["tecnologia"], ["util", "original"], ["18-25", "26-40", "41-60", "60+"], "enchufe inteligente wifi"),
+  gift("kit-luces", "Kit de luces inteligentes", "💡", 45, "Cambia el ambiente de una habitación desde el móvil.", ["tecnologia", "gaming"], ["original", "util"], ["13-17", "18-25", "26-40", "41-60"], "kit luces inteligentes"),
+  gift("tripode-movil", "Trípode flexible para móvil", "🤳", 22, "Facilita fotos, vídeos y videollamadas sin sujetar el teléfono.", ["tecnologia", "fotografia", "viajes"], ["util", "original"], ["13-17", "18-25", "26-40", "41-60"], "trípode flexible móvil"),
+  gift("organizador-cables", "Organizador de cables", "🧵", 15, "Mantiene cargadores y accesorios ordenados dentro y fuera de casa.", ["tecnologia", "viajes"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "organizador cables regalo"),
+  gift("hub-usb", "Adaptador multipuerto USB", "🔗", 32, "Añade conexiones útiles a un portátil con pocos puertos.", ["tecnologia"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60"], "hub usb multipuerto"),
+  gift("reloj-digital", "Reloj digital de escritorio", "⏰", 25, "Muestra la hora y ayuda a organizar el escritorio o la mesita.", ["tecnologia", "bienestar"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "reloj digital escritorio"),
+  gift("ventilador-mini", "Ventilador recargable", "🌬️", 20, "Un accesorio práctico para el escritorio, el coche o los viajes.", ["tecnologia", "viajes"], ["util", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "ventilador recargable pequeño"),
+  gift("reproductor-streaming", "Reproductor multimedia para TV", "📺", 49, "Añade aplicaciones y contenido online a cualquier televisor compatible.", ["tecnologia"], ["util", "experiencia"], ["18-25", "26-40", "41-60", "60+"], "reproductor streaming tv"),
+  gift("puas-personalizadas", "Púas de guitarra personalizadas", "🎸", 12, "Un pequeño detalle con nombre, fecha o frase especial.", ["musica", "arte"], ["emocional", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "púas guitarra personalizadas"),
+  gift("soporte-auriculares", "Soporte para auriculares", "🎧", 25, "Ordena el escritorio y mantiene los auriculares siempre a mano.", ["musica", "tecnologia", "gaming"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60"], "soporte auriculares escritorio"),
+  gift("afinador", "Afinador para instrumentos", "🎼", 18, "Una herramienta pequeña y útil para practicar con precisión.", ["musica"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "afinador instrumento regalo"),
+  gift("microfono-karaoke", "Micrófono de karaoke", "🎤", 35, "Convierte cualquier reunión en un rato divertido con música.", ["musica", "tecnologia"], ["divertido", "experiencia"], ["0-12", "13-17", "18-25", "26-40", "41-60"], "micrófono karaoke bluetooth"),
+  gift("marco-vinilo", "Marco para su vinilo favorito", "🎵", 20, "Permite exponer una portada especial como parte de la decoración.", ["musica", "arte"], ["emocional", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "marco para vinilo"),
+  gift("suscripcion-musica", "Suscripción de música", "🎶", 30, "Meses de música sin anuncios y con sus listas siempre disponibles.", ["musica", "tecnologia"], ["util", "experiencia"], ["13-17", "18-25", "26-40", "41-60", "60+"], "tarjeta suscripción música"),
+  gift("clase-instrumento", "Clase de instrumento", "🎹", 40, "Una sesión para aprender una canción o mejorar su técnica.", ["musica"], ["experiencia", "original"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "clase música instrumento regalo"),
+  gift("poster-musical", "Póster musical personalizado", "🎙️", 18, "Una canción, artista o concierto convertido en decoración personal.", ["musica", "arte"], ["emocional", "original"], ["13-17", "18-25", "26-40", "41-60"], "póster musical personalizado"),
+  gift("alfombrilla-escritorio", "Alfombrilla grande de escritorio", "🖥️", 25, "Mejora el espacio para jugar, estudiar o trabajar.", ["gaming", "tecnologia"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60"], "alfombrilla escritorio grande"),
+  gift("raton-gaming", "Ratón para gaming", "🖱️", 45, "Mayor precisión y botones configurables para sus partidas.", ["gaming", "tecnologia"], ["util", "elegante"], ["13-17", "18-25", "26-40"], "ratón gaming regalo"),
+  gift("base-mandos", "Base de carga para mandos", "🔌", 28, "Mantiene los mandos ordenados y listos para jugar.", ["gaming", "tecnologia"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60"], "base carga mandos consola"),
+  gift("consola-retro", "Mini consola retro", "👾", 65, "Recupera juegos clásicos en un formato fácil de compartir.", ["gaming", "tecnologia"], ["divertido", "experiencia"], ["13-17", "18-25", "26-40", "41-60", "60+"], "mini consola retro"),
+  gift("cojin-gaming", "Cojín ergonómico para jugar", "🪑", 30, "Aporta comodidad durante sesiones largas frente a la pantalla.", ["gaming", "bienestar"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60"], "cojín ergonómico silla gaming"),
+  gift("juego-cooperativo", "Juego de mesa cooperativo", "🤝", 35, "Un reto en equipo para jugar con amigos o familia.", ["gaming"], ["divertido", "experiencia"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "juego mesa cooperativo"),
+  gift("escape-room", "Sesión de escape room", "🔐", 60, "Una experiencia de pistas y trabajo en equipo para compartir.", ["gaming", "experiencia"], ["experiencia", "divertido"], ["13-17", "18-25", "26-40", "41-60"], "escape room regalo"),
+  gift("auriculares-gaming", "Auriculares con micrófono", "🎧", 55, "Sonido y comunicación para jugar con amigos.", ["gaming", "tecnologia"], ["util", "experiencia"], ["13-17", "18-25", "26-40"], "auriculares gaming micrófono"),
+  gift("bandas-elasticas", "Bandas elásticas de entrenamiento", "🏋️", 18, "Permiten entrenar fuerza en casa o durante un viaje.", ["deporte", "bienestar"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "bandas elásticas entrenamiento"),
+  gift("bolsa-gimnasio", "Bolsa para el gimnasio", "🎒", 35, "Organiza ropa, botella y accesorios para entrenar.", ["deporte", "moda"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60"], "bolsa gimnasio regalo"),
+  gift("guantes-entreno", "Guantes de entrenamiento", "🧤", 20, "Mejoran el agarre y protegen las manos en el gimnasio.", ["deporte"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60"], "guantes gimnasio entrenamiento"),
+  gift("cinturon-running", "Cinturón para correr", "🏃", 18, "Lleva móvil y llaves sin que molesten durante la carrera.", ["deporte", "viajes"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "cinturón running móvil"),
+  gift("pistola-masaje", "Pistola de masaje compacta", "💆", 55, "Ayuda a relajar la musculatura después de entrenar.", ["deporte", "bienestar"], ["util", "elegante"], ["18-25", "26-40", "41-60", "60+"], "pistola masaje compacta"),
+  gift("esterilla-yoga", "Esterilla de yoga", "🧘", 30, "Una base cómoda para movilidad, estiramientos o entrenamiento.", ["deporte", "bienestar"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "esterilla yoga regalo"),
+  gift("pack-padel", "Pack de accesorios de pádel", "🎾", 40, "Incluye complementos útiles para jugar y cuidar la pala.", ["deporte"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "pack accesorios pádel"),
+  gift("inscripcion-carrera", "Inscripción a una carrera", "🏅", 25, "Un objetivo deportivo acompañado de una experiencia especial.", ["deporte"], ["experiencia", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "inscripción carrera popular regalo"),
+  gift("entrenador-bicicleta", "Rodillo para bicicleta", "🚴", 179, "Permite entrenar en casa cuando el tiempo no acompaña.", ["deporte", "tecnologia"], ["util", "experiencia"], ["18-25", "26-40", "41-60", "60+"], "rodillo bicicleta entrenamiento"),
+  gift("almohada-viaje", "Almohada de viaje", "😴", 20, "Aporta comodidad en avión, tren, coche o autobús.", ["viajes", "bienestar"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "almohada viaje cómoda"),
+  gift("mochila-cabina", "Mochila de cabina", "🎒", 55, "Aprovecha el espacio y organiza escapadas de pocos días.", ["viajes", "moda"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "mochila cabina viaje"),
+  gift("etiqueta-maleta", "Etiqueta de maleta personalizada", "🏷️", 12, "Identifica su equipaje con un detalle personal.", ["viajes", "moda"], ["util", "emocional"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "etiqueta maleta personalizada"),
+  gift("diario-viaje", "Diario de viaje", "📓", 18, "Guarda rutas, entradas, fotografías y recuerdos de cada destino.", ["viajes", "lectura", "arte"], ["emocional", "util"], ["13-17", "18-25", "26-40", "41-60", "60+"], "diario viaje regalo"),
+  gift("bascula-maleta", "Báscula portátil para maletas", "⚖️", 14, "Evita sorpresas con el peso antes de llegar al aeropuerto.", ["viajes", "tecnologia"], ["util", "elegante"], ["18-25", "26-40", "41-60", "60+"], "báscula portátil maleta"),
+  gift("caja-experiencias", "Caja de experiencias", "🎁", 99, "Permite elegir entre escapadas, gastronomía y actividades.", ["viajes", "cocina", "bienestar"], ["experiencia", "elegante"], ["18-25", "26-40", "41-60", "60+"], "caja experiencias regalo"),
+  gift("mochila-picnic", "Mochila de pícnic equipada", "🧺", 60, "Todo preparado para comer al aire libre en pareja o con amigos.", ["viajes", "naturaleza", "cocina"], ["experiencia", "util"], ["18-25", "26-40", "41-60", "60+"], "mochila picnic equipada"),
+  gift("lentes-movil", "Kit de lentes para móvil", "🔍", 28, "Añade perspectivas creativas a las fotografías del teléfono.", ["fotografia", "tecnologia"], ["original", "util"], ["13-17", "18-25", "26-40", "41-60"], "kit lentes cámara móvil"),
+  gift("correa-camara", "Correa cómoda para cámara", "📷", 30, "Aporta seguridad y estilo durante una sesión o un viaje.", ["fotografia", "viajes"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "correa cámara cómoda"),
+  gift("luz-fotografia", "Luz portátil para fotos", "💡", 35, "Mejora retratos, vídeos y fotografías de productos.", ["fotografia", "tecnologia"], ["util", "original"], ["13-17", "18-25", "26-40", "41-60"], "luz portátil fotografía"),
+  gift("curso-fotografia", "Curso de fotografía", "📸", 50, "Una experiencia para aprender composición, luz y edición.", ["fotografia", "arte"], ["experiencia", "util"], ["13-17", "18-25", "26-40", "41-60", "60+"], "curso fotografía regalo"),
+  gift("fotolibro", "Fotolibro de un viaje", "📖", 40, "Reúne los mejores recuerdos en un formato cuidado y duradero.", ["fotografia", "viajes"], ["emocional", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "fotolibro personalizado"),
+  gift("camara-desechable", "Cámara desechable", "📷", 20, "Recupera la sorpresa de esperar para ver las fotografías.", ["fotografia", "viajes"], ["divertido", "original"], ["13-17", "18-25", "26-40", "41-60"], "cámara desechable regalo"),
+  gift("objetivo-camara", "Objetivo para cámara", "📷", 249, "Amplía las posibilidades creativas de alguien aficionado a la fotografía.", ["fotografia", "tecnologia"], ["util", "elegante"], ["18-25", "26-40", "41-60", "60+"], "objetivo cámara regalo"),
+  gift("cuchillo-cocina", "Cuchillo de cocina de calidad", "🔪", 45, "Una herramienta duradera para quien disfruta cocinando.", ["cocina"], ["util", "elegante"], ["18-25", "26-40", "41-60", "60+"], "cuchillo cocina calidad regalo"),
+  gift("delantal", "Delantal personalizado", "👨‍🍳", 18, "Un detalle práctico con nombre, frase o diseño propio.", ["cocina", "arte"], ["divertido", "util"], ["13-17", "18-25", "26-40", "41-60", "60+"], "delantal personalizado"),
+  gift("accesorios-freidora", "Accesorios para freidora de aire", "🍟", 25, "Amplían las recetas que puede preparar de manera sencilla.", ["cocina"], ["util", "original"], ["18-25", "26-40", "41-60", "60+"], "accesorios freidora aire"),
+  gift("kit-sushi", "Kit para preparar sushi", "🍣", 30, "Convierte una cena en una actividad entretenida y diferente.", ["cocina", "viajes"], ["experiencia", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "kit preparar sushi"),
+  gift("kit-chocolate", "Kit para hacer chocolate", "🍫", 22, "Una actividad dulce para preparar y compartir.", ["cocina"], ["divertido", "experiencia"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "kit hacer chocolate regalo"),
+  gift("brunch", "Brunch para dos", "🥞", 40, "Un plan gastronómico fácil de compartir durante el fin de semana.", ["cocina"], ["experiencia", "emocional"], ["13-17", "18-25", "26-40", "41-60", "60+"], "brunch para dos regalo"),
+  gift("set-te", "Set de té especial", "🫖", 35, "Una selección cuidada para disfrutar de un momento tranquilo.", ["cocina", "bienestar"], ["elegante", "experiencia"], ["18-25", "26-40", "41-60", "60+"], "set té regalo"),
+  gift("kit-cocteles", "Kit para preparar cócteles", "🍹", 30, "Incluye herramientas para aprender y preparar bebidas en casa.", ["cocina"], ["divertido", "experiencia"], ["18-25", "26-40", "41-60"], "kit cócteles regalo"),
+  gift("cafetera-premium", "Cafetera espresso", "☕", 199, "Mejora el café diario de alguien que disfruta preparándolo.", ["cocina", "tecnologia"], ["util", "elegante"], ["18-25", "26-40", "41-60", "60+"], "cafetera espresso regalo"),
+  gift("caja-libros", "Caja mensual de libros", "📦", 45, "Combina una lectura sorpresa con pequeños detalles temáticos.", ["lectura"], ["experiencia", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "caja suscripción libros"),
+  gift("vale-libreria", "Vale para una librería", "📚", 25, "Le permite escoger su próxima lectura con total libertad.", ["lectura"], ["util", "elegante"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "tarjeta regalo librería"),
+  gift("diario-lectura", "Diario de lecturas", "📔", 15, "Sirve para guardar citas, opiniones y libros pendientes.", ["lectura", "arte"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "diario de lecturas"),
+  gift("soporte-libro", "Soporte para libros", "📖", 20, "Mantiene el libro abierto para leer, estudiar o seguir recetas.", ["lectura", "cocina"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "soporte libro lectura"),
+  gift("audiolibros", "Suscripción de audiolibros", "🎧", 30, "Permite escuchar historias mientras viaja, camina o descansa.", ["lectura", "viajes"], ["util", "experiencia"], ["13-17", "18-25", "26-40", "41-60", "60+"], "suscripción audiolibros regalo"),
+  gift("ruta-literaria", "Ruta literaria", "🏛️", 40, "Una visita guiada por lugares relacionados con autores y novelas.", ["lectura", "viajes"], ["experiencia", "original"], ["18-25", "26-40", "41-60", "60+"], "ruta literaria regalo"),
+  gift("suscripcion-libros-anual", "Suscripción anual de libros", "📚", 120, "Una nueva lectura seleccionada y enviada durante varios meses.", ["lectura"], ["experiencia", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "suscripción anual libros"),
+  gift("acuarelas", "Set de acuarelas", "🎨", 25, "Todo lo necesario para empezar a pintar y experimentar con color.", ["arte"], ["original", "util"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "set acuarelas regalo"),
+  gift("cuaderno-dibujo", "Cuaderno de dibujo de calidad", "✏️", 18, "Un espacio agradable para dibujar, diseñar o practicar.", ["arte"], ["util", "elegante"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "cuaderno dibujo calidad"),
+  gift("ceramica-casa", "Kit de cerámica en casa", "🏺", 35, "Una actividad creativa para modelar y decorar piezas propias.", ["arte", "bienestar"], ["experiencia", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "kit cerámica casa"),
+  gift("bordado", "Kit de bordado", "🪡", 22, "Incluye materiales y patrón para crear una pieza decorativa.", ["arte", "bienestar"], ["util", "experiencia"], ["13-17", "18-25", "26-40", "41-60", "60+"], "kit bordado regalo"),
+  gift("puzzle-3d", "Puzzle en 3D", "🏰", 28, "Un proyecto entretenido para construir y exponer.", ["arte", "gaming"], ["divertido", "experiencia"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "puzzle 3d regalo"),
+  gift("ilustracion", "Ilustración personalizada", "🖼️", 45, "Convierte una persona, pareja, familia o mascota en una obra única.", ["arte", "fotografia"], ["emocional", "original"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "ilustración personalizada regalo"),
+  gift("pase-museos", "Pase para museos", "🏛️", 50, "Acceso a exposiciones para disfrutar del arte durante varias visitas.", ["arte", "viajes"], ["experiencia", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "pase museos regalo"),
+  gift("tableta-dibujo", "Tableta de dibujo digital", "🖊️", 179, "Permite ilustrar, diseñar y editar directamente en el ordenador.", ["arte", "tecnologia"], ["util", "original"], ["13-17", "18-25", "26-40", "41-60"], "tableta dibujo digital"),
+  gift("antifaz", "Antifaz cómodo para dormir", "😴", 15, "Ayuda a descansar en casa o durante un viaje.", ["bienestar", "viajes"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "antifaz dormir cómodo"),
+  gift("kit-bano", "Kit de baño relajante", "🛁", 25, "Reúne sales, geles y pequeños detalles para desconectar.", ["bienestar"], ["emocional", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "kit baño relajante"),
+  gift("difusor", "Difusor de aromas", "🌫️", 30, "Crea un ambiente agradable y tranquilo en una habitación.", ["bienestar", "tecnologia"], ["util", "elegante"], ["18-25", "26-40", "41-60", "60+"], "difusor aromas regalo"),
+  gift("cojin-termico", "Cojín térmico", "🔥", 40, "Aporta calor y comodidad durante momentos de descanso.", ["bienestar"], ["util", "emocional"], ["18-25", "26-40", "41-60", "60+"], "cojín térmico regalo"),
+  gift("meditacion", "Suscripción de meditación", "🧘", 25, "Ofrece sesiones guiadas para incorporar momentos de calma.", ["bienestar", "tecnologia"], ["util", "experiencia"], ["13-17", "18-25", "26-40", "41-60", "60+"], "suscripción meditación regalo"),
+  gift("cuidado-piel", "Kit de cuidado personal", "🧴", 35, "Una selección sencilla para convertir la rutina en un momento agradable.", ["bienestar", "moda"], ["elegante", "util"], ["13-17", "18-25", "26-40", "41-60", "60+"], "kit cuidado personal regalo"),
+  gift("infusiones", "Selección de infusiones", "🍵", 20, "Sabores variados para disfrutar de una pausa tranquila.", ["bienestar", "cocina"], ["elegante", "experiencia"], ["13-17", "18-25", "26-40", "41-60", "60+"], "selección infusiones regalo"),
+  gift("fin-semana-spa", "Fin de semana de bienestar", "🧖", 160, "Combina descanso, alojamiento y tiempo para desconectar.", ["bienestar", "viajes"], ["experiencia", "emocional"], ["18-25", "26-40", "41-60", "60+"], "fin semana spa regalo"),
+  gift("bolsa-tela", "Bolsa de tela personalizada", "👜", 18, "Un complemento útil con una ilustración o frase propia.", ["moda", "arte"], ["util", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "tote bag personalizada"),
+  gift("gafas-sol", "Gafas de sol", "🕶️", 45, "Un complemento práctico para usar durante todo el año.", ["moda", "viajes"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "gafas sol regalo"),
+  gift("bufanda", "Bufanda suave", "🧣", 25, "Un complemento cómodo y fácil de combinar.", ["moda"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "bufanda suave regalo"),
+  gift("caja-relojes", "Caja para relojes y accesorios", "⌚", 40, "Mantiene sus complementos ordenados y protegidos.", ["moda"], ["util", "elegante"], ["18-25", "26-40", "41-60", "60+"], "caja relojes accesorios"),
+  gift("pulsera", "Pulsera personalizada", "📿", 30, "Una pieza sencilla con iniciales, fecha o pequeño mensaje.", ["moda", "arte"], ["emocional", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "pulsera personalizada regalo"),
+  gift("limpieza-zapatillas", "Kit para cuidar zapatillas", "👟", 20, "Ayuda a mantener limpio y protegido su calzado favorito.", ["moda", "deporte"], ["util", "original"], ["13-17", "18-25", "26-40", "41-60"], "kit limpieza zapatillas"),
+  gift("chaqueta", "Chaqueta de calidad", "🧥", 150, "Una prenda duradera elegida según su estilo habitual.", ["moda"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "chaqueta regalo"),
+  gift("comedero-aves", "Comedero para aves", "🐦", 25, "Acerca la naturaleza a una terraza, balcón o jardín.", ["naturaleza"], ["original", "experiencia"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "comedero aves regalo"),
+  gift("terrario", "Kit para crear un terrario", "🌿", 35, "Una actividad creativa que termina en una pequeña decoración viva.", ["naturaleza", "arte"], ["experiencia", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "kit terrario regalo"),
+  gift("hamaca", "Hamaca portátil", "🌴", 40, "Un lugar cómodo para descansar durante excursiones o en el jardín.", ["naturaleza", "viajes", "bienestar"], ["util", "experiencia"], ["13-17", "18-25", "26-40", "41-60", "60+"], "hamaca portátil"),
+  gift("prismaticos", "Prismáticos compactos", "🔭", 55, "Permiten observar paisajes, aves y eventos al aire libre.", ["naturaleza", "viajes"], ["util", "experiencia"], ["13-17", "18-25", "26-40", "41-60", "60+"], "prismáticos compactos regalo"),
+  gift("herramientas-jardin", "Set de herramientas de jardín", "🪴", 30, "Incluye lo necesario para cuidar plantas y pequeños cultivos.", ["naturaleza"], ["util", "elegante"], ["18-25", "26-40", "41-60", "60+"], "herramientas jardín regalo"),
+  gift("ruta-naturaleza", "Ruta guiada por la naturaleza", "🏞️", 80, "Una jornada para descubrir un entorno natural con tranquilidad.", ["naturaleza", "viajes"], ["experiencia", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "ruta naturaleza guiada regalo"),
+  gift("aventura-fin-semana", "Fin de semana de aventura", "🧗", 140, "Combina alojamiento y actividades al aire libre.", ["naturaleza", "viajes", "deporte"], ["experiencia", "original"], ["18-25", "26-40", "41-60"], "fin semana aventura regalo")
+);
+
+gifts.push(
+  gift("tarjeta-app", "Saldo para aplicaciones o juegos", "📲", 10, "Le permite elegir una aplicación, juego o contenido digital.", ["tecnologia", "gaming", "musica"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "tarjeta regalo aplicaciones juegos"),
+  gift("playlist-impresa", "Lista de reproducción personalizada", "🎵", 9, "Una selección de canciones acompañada de una portada y dedicatoria.", ["musica", "arte"], ["emocional", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "playlist personalizada regalo"),
+  gift("fondo-personalizado", "Fondo de pantalla personalizado", "🖥️", 8, "Un diseño creado alrededor de su juego, personaje o estilo favorito.", ["gaming", "tecnologia", "arte"], ["original", "emocional"], ["0-12", "13-17", "18-25", "26-40"], "fondo pantalla personalizado"),
+  gift("pegatinas-gaming", "Set de pegatinas gaming", "👾", 7, "Pegatinas de mandos, píxeles o personajes para personalizar sus cosas.", ["gaming", "arte"], ["divertido", "original"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "pegatinas gaming regalo"),
+  gift("toalla-deportiva", "Toalla deportiva compacta", "🧺", 12, "Ocupa poco espacio y resulta útil para gimnasio, piscina o viajes.", ["deporte", "viajes"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "toalla deportiva compacta"),
+  gift("plan-entrenamiento", "Planificador de entrenamientos", "📋", 10, "Ayuda a registrar ejercicios, marcas y objetivos semanales.", ["deporte", "bienestar"], ["util", "original"], ["13-17", "18-25", "26-40", "41-60", "60+"], "planificador entrenamiento regalo"),
+  gift("pulsera-reflectante", "Pulsera deportiva reflectante", "🟡", 9, "Mejora la visibilidad al caminar o correr con poca luz.", ["deporte", "moda"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "pulsera reflectante deporte"),
+  gift("vale-deporte", "Vale para hacer deporte juntos", "🎟️", 15, "Una invitación personal para compartir una salida o entrenamiento.", ["deporte"], ["experiencia", "emocional"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "vale actividad deportiva regalo"),
+  gift("marcos-magneticos", "Marcos magnéticos para fotos", "🧲", 12, "Permiten cambiar y exponer recuerdos fácilmente.", ["fotografia", "arte"], ["emocional", "util"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "marcos magnéticos fotos"),
+  gift("album-bolsillo", "Álbum de fotos de bolsillo", "📒", 10, "Un pequeño álbum para llevar varios recuerdos favoritos.", ["fotografia", "viajes"], ["emocional", "elegante"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "álbum fotos bolsillo"),
+  gift("foto-madera", "Mini foto impresa en madera", "🪵", 15, "Un recuerdo pequeño que puede decorar la mesa o estantería.", ["fotografia", "arte"], ["emocional", "original"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "foto madera personalizada"),
+  gift("reto-fotografico", "Tarjetas de retos fotográficos", "📷", 8, "Proponen ideas sencillas para salir a hacer fotos diferentes.", ["fotografia", "arte"], ["experiencia", "original"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "retos fotográficos tarjetas"),
+  gift("recetas-familiares", "Pequeño libro de recetas familiares", "📗", 12, "Reúne varias recetas importantes con espacio para añadir nuevas.", ["cocina", "lectura"], ["emocional", "util"], ["13-17", "18-25", "26-40", "41-60", "60+"], "libro recetas familiar personalizado"),
+  gift("cortador-galletas", "Cortador de galletas personalizado", "🍪", 10, "Convierte una forma, nombre o afición en algo para cocinar.", ["cocina", "arte"], ["divertido", "original"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "cortador galletas personalizado"),
+  gift("tarjetas-respiracion", "Tarjetas de respiración y calma", "🌬️", 8, "Pequeños ejercicios guiados para hacer pausas durante el día.", ["bienestar", "lectura"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "tarjetas respiración calma"),
+  gift("calcetines-descanso", "Calcetines suaves para estar en casa", "🧦", 12, "Un detalle cómodo para los momentos de descanso.", ["bienestar", "moda"], ["util", "emocional"], ["13-17", "18-25", "26-40", "41-60", "60+"], "calcetines suaves descanso"),
+  gift("balsamos", "Pack de bálsamos de cuidado", "🧴", 10, "Un pequeño complemento para llevar y utilizar a diario.", ["bienestar", "moda"], ["util", "elegante"], ["13-17", "18-25", "26-40", "41-60", "60+"], "pack bálsamos regalo"),
+  gift("pin-personalizado", "Pin personalizado", "📌", 12, "Un complemento pequeño relacionado con su estilo o afición.", ["moda", "arte"], ["original", "elegante"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "pin personalizado regalo"),
+  gift("lupa-naturaleza", "Mini lupa para explorar", "🔎", 10, "Sirve para observar hojas, insectos y pequeños detalles al aire libre.", ["naturaleza", "viajes"], ["experiencia", "original"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "lupa naturaleza bolsillo"),
+  gift("maceta-pintar", "Maceta para pintar y plantar", "🪴", 12, "Combina una actividad creativa con el cuidado de una planta.", ["naturaleza", "arte"], ["experiencia", "original"], ["0-12", "13-17", "18-25", "26-40", "41-60", "60+"], "maceta pintar plantar kit"),
+  gift("guia-rutas", "Guía de rutas cercanas", "🥾", 15, "Ideas para descubrir caminatas y espacios naturales de la zona.", ["naturaleza", "viajes", "lectura"], ["util", "experiencia"], ["13-17", "18-25", "26-40", "41-60", "60+"], "guía rutas senderismo local")
+);
+
 const colorPalette = ["#ffe6ec", "#eee9ff", "#fff1c9", "#dff6ec", "#e3f0ff", "#ffe9d8"];
 const state = {
   step: 0,
@@ -2067,11 +767,14 @@ function calculateResults() {
     let score = 0;
     const matches = [];
     const interestMatches = item.interests.filter((interest) => state.answers.interests.includes(interest));
+    const matchesAge = item.ages.includes(state.answers.age);
+    const matchesVibe = item.vibes.includes(state.answers.vibe);
+    const fitsBudget = item.price >= budgetMin && item.price <= budgetMax;
 
     score += recipientFit(item, state.answers.recipient);
     score += occasionFit(item, state.answers.occasion);
-    if (item.ages.includes(state.answers.age)) score += 4;
-    if (item.vibes.includes(state.answers.vibe)) {
+    if (matchesAge) score += 4;
+    if (matchesVibe) {
       score += 5;
       matches.push(labelFor("vibe", state.answers.vibe).toLowerCase());
     }
@@ -2079,15 +782,44 @@ function calculateResults() {
     if (interestMatches.length) {
       matches.unshift(interestMatches.map((value) => labelFor("interests", value).toLowerCase()).join(" y "));
     }
-    if (item.price >= budgetMin && item.price <= budgetMax) score += 7;
+    if (fitsBudget) score += 7;
     if (item.price <= budgetMax) score += 2;
 
-    return { ...item, score, matches };
+    return {
+      ...item,
+      score,
+      matches,
+      interestMatchCount: interestMatches.length,
+      matchesAge,
+      matchesVibe,
+      fitsBudget
+    };
   });
 
-  const withinBudget = ranked.filter((item) => item.price >= budgetMin && item.price <= budgetMax);
-  const pool = withinBudget.length >= 6 ? withinBudget : ranked.filter((item) => item.price <= budgetMax);
-  return pool.sort((a, b) => b.score - a.score || a.price - b.price).slice(0, 6);
+  const sorted = ranked.sort((a, b) => b.score - a.score || a.price - b.price);
+  const affordable = (item) => item.price <= budgetMax;
+  const priorityGroups = [
+    sorted.filter((item) => item.fitsBudget && item.interestMatchCount > 0 && item.matchesAge && item.matchesVibe),
+    sorted.filter((item) => item.fitsBudget && item.interestMatchCount > 0 && item.matchesAge),
+    sorted.filter((item) => item.fitsBudget && item.interestMatchCount > 0),
+    sorted.filter((item) => affordable(item) && item.interestMatchCount > 0 && item.matchesAge && item.matchesVibe),
+    sorted.filter((item) => affordable(item) && item.interestMatchCount > 0 && item.matchesAge),
+    sorted.filter((item) => affordable(item) && item.interestMatchCount > 0),
+    sorted.filter((item) => item.fitsBudget && item.matchesAge),
+    sorted.filter((item) => item.fitsBudget),
+    sorted.filter((item) => affordable(item))
+  ];
+
+  const selected = [];
+  priorityGroups.forEach((group) => {
+    group.forEach((item) => {
+      if (selected.length < 6 && !selected.some((selectedItem) => selectedItem.id === item.id)) {
+        selected.push(item);
+      }
+    });
+  });
+
+  return selected;
 }
 
 function recipientFit(item, recipient) {
@@ -2462,6 +1194,6 @@ function scrollToSection(element) {
   element.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-    </script>
+</script>
   </body>
 </html>
